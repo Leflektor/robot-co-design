@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-inactive {
+    @apply bg-gray-300 border border-black rounded  p-2 hover:bg-gray-500 transition duration-300;
+}
+
+.btn-active {
+    @apply bg-gray-600 border border-black rounded p-2;
+}
+
+.text-input {
+    @apply border border-black rounded p-2 w-full;
+}
+
+th,
+tr,
+td {
+    @apply border border-black align-middle text-center;
+}
+
+.table-btn {
+    @apply rounded-md border border-black bg-gray-300 w-14 h-10 inline-flex justify-center items-center hover:bg-gray-500 transition duration-300;
+}
+
+.table-btn-active {
+    @apply rounded-md border border-black bg-gray-500 w-14 h-10 inline-flex justify-center items-center;
+}
+
+textarea::-webkit-scrollbar {
+    width: 0px;
+}

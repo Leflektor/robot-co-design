@@ -1,0 +1,2048 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="styles.css" />
+        <script type="module" src="module.js"></script>
+
+        <title>CO-DESIGN ROBOTÓW</title>
+    </head>
+    <body class="bg-blue-300 p-24">
+        <div
+            class="app max-w-xl rounded-lg p-8 w-11/12 m-auto bg-white shadow-lg"
+        >
+            <div
+                class="pb-8 border-b border-blue-900 mb-4 justify-center items-center"
+            >
+                <h1 class="text-xl font-semibold text-center">
+                    ROBOT CO-DESIGN
+                </h1>
+                <div
+                    class="goal p-6 border rounded-md border-blue-900 bg-blue-200 mt-8"
+                >
+                    <h3 class="text-center font-bold pb-4">Project Goal:</h3>
+                    <h3>
+                        The goal of this project is to implement an internet
+                        site to assist in the co-design of medical robots,
+                        primarily aimed at helping older adults but also
+                        benefiting individuals with various illnesses who need
+                        such assistance from robots. The implemented site should
+                        facilitate the co-design process in such a way that even
+                        a person completely inexperienced with robots or
+                        technology can understand why certain features would be
+                        helpful for them. We aim to achieve this utility by
+                        providing a site with many well-explained pictures and a
+                        questionnaire that will help users design a robot
+                        perfectly suited to their needs.
+                    </h3>
+                </div>
+            </div>
+            <!-- ARE YOU CAREGIVER SECTION -->
+            <div class="page" id="0">
+                <!-- first question -->
+                <div class="inline-flex items-center my-4">
+                    <h2 class="justify-center">Are you a care giver?</h2>
+                    <button class="btn-inactive two_choices yes ml-5">
+                        YES
+                    </button>
+                    <button class="btn-inactive two_choices no ml-5">NO</button>
+                </div>
+                <!-- informal formal caregiver question -->
+                <div class="questions1 inline-flex items-center my-4 hidden">
+                    <h2>Are you an informal or formal caregiver?</h2>
+                    <button class="btn-inactive two_choices form ml-5">
+                        FORMAL
+                    </button>
+                    <button class="btn-inactive two_choices inform ml-5">
+                        INFORMAL
+                    </button>
+                </div>
+                <!-- Type of informal caregiver-->
+                <div class="formal-informal">
+                    <div
+                        class="flex flex-col space-y-4 my-4 hidden informal-section"
+                    >
+                        <h2>What type of informal caregiver are you?</h2>
+                        <button class="btn-inactive informal">
+                            Family member
+                        </button>
+                        <button class="btn-inactive informal">Friend</button>
+                        <button class="btn-inactive informal">Neighbour</button>
+                    </div>
+                    <!-- Type of formal caregiver -->
+                    <div
+                        class="flex flex-col space-y-4 my-4 hidden formal-section"
+                    >
+                        <h2>What type of formal caregiver are you?</h2>
+                        <button class="btn-inactive formal">
+                            Social worker
+                        </button>
+                        <button class="btn-inactive formal">Nurse</button>
+                        <button class="btn-inactive formal">
+                            Physiotherapist
+                        </button>
+                    </div>
+                    <div>
+                        <form
+                            class="caregiver-form inline-flex items-center my-4 hidden"
+                        >
+                            <p class="mr-4">Other:</p>
+                            <input
+                                class="text-input ml-4"
+                                type="text"
+                                placeholder="specify"
+                            />
+                            <button class="caregiver-submit btn-inactive ml-3">
+                                submit
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <!-- TODO date of birth -->
+                <div>
+                    <form class="birth-date-form flex items-center my-4">
+                        Date of Birth:
+                        <input
+                            class="input rounded border border-black p-2 ml-6"
+                            type="date"
+                        />
+                        <button class="birth-date-submit btn-inactive ml-3">
+                            submit
+                        </button>
+                    </form>
+                </div>
+                <!-- Whats your gender -->
+                <div class="gender-section inline-flex items-center my-4">
+                    <h2>What is Your gender?</h2>
+                    <button class="gender btn-inactive two_choices ml-5">
+                        MALE
+                    </button>
+                    <button class="gender btn-inactive two_choices ml-5">
+                        FEMALE
+                    </button>
+                </div>
+                <!-- Education -->
+                <div class="flex flex-col">
+                    <form class="education-form inline-flex items-center my-4">
+                        <p class="mr-4">Education:</p>
+                        <input
+                            class="text-input ml-4"
+                            type="text"
+                            placeholder="number of years"
+                        />
+                        <button class="education-submit btn-inactive ml-3">
+                            submit
+                        </button>
+                    </form>
+                </div>
+                <!-- Profession -->
+                <div class="flex flex-col">
+                    <form class="profession-form inline-flex items-center my-4">
+                        <p class="mr-4">Profession:</p>
+                        <input
+                            class="text-input ml-4"
+                            type="text"
+                            placeholder="if retired, former profession"
+                        />
+                        <button class="profession-submit btn-inactive ml-3">
+                            submit
+                        </button>
+                    </form>
+                </div>
+                <!-- Background -->
+                <div class="background-section flex flex-col space-y-4 my-4">
+                    <h2>Background:</h2>
+                    <button class="btn-inactive background">Technical</button>
+                    <button class="btn-inactive background">Medical</button>
+                    <button class="btn-inactive background">Other</button>
+                </div>
+                <!-- Familiar with computers question -->
+                <div class="computers-section inline-flex items-center my-4">
+                    <h2>Are you familiar with computers?</h2>
+                    <div>
+                        <button class="btn-inactive ml-3 computers">YES</button>
+                        <button class="btn-inactive ml-3 computers">NO</button>
+                        <button class="btn-inactive ml-3 computers">
+                            Neither Y nor N
+                        </button>
+                    </div>
+                </div>
+                <!-- Familiar with technological systems question -->
+                <div class="tech-systems-section inline-flex items-center my-4">
+                    <div class="flex flex-col items-center">
+                        <h2>Are you familiar working</h2>
+                        <h2>with technological systems?</h2>
+                    </div>
+                    <button class="btn-inactive ml-3 tech-systems">YES</button>
+                    <button class="btn-inactive ml-3 tech-systems">NO</button>
+                    <button class="btn-inactive ml-3 tech-systems">
+                        Neither Y nor N
+                    </button>
+                </div>
+            </div>
+            <!-- 1. A. INTERACTION WITH THE ROBOT AND TECHNICAL ISSUES -->
+            <div class="page hidden" id="1" name="A">
+                <p class="my-4">
+                    Please answer the following questions by choosing option
+                    that describes best how you feel about it.
+                </p>
+                <div>
+                    <table
+                        class="table-auto border border-black text-center border-collapse"
+                        id="table1"
+                    >
+                        <tr>
+                            <th>
+                                A. INTERACTION WITH THE ROBOT AND TECHNICAL
+                                ISSUES
+                            </th>
+                            <th>I strongly disagree</th>
+                            <th>I partially disagree</th>
+                            <th>I neither agree nor disagree</th>
+                            <th>I partially agree</th>
+                            <th>I strongly agree</th>
+                            <th>Comments</th>
+                        </tr>
+                        <tr id="A1">
+                            <th>
+                                A1. The robot should be a companion of the older
+                                person
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="A2">
+                            <th>
+                                A2. The robot should be an assistant of the
+                                older person
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="A3">
+                            <th>
+                                A3. The robot should be a useful device of the
+                                older person (something to be used when need,
+                                with no other interaction)
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="A4">
+                            <th>
+                                A4. Older adults are prepared to interact with a
+                                robot
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="A5">
+                            <th>
+                                A5. Older adults are able to manage with the
+                                robot
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="A6">
+                            <th>
+                                A6. Older adults want to increase their
+                                knowledge about the robots to be able to operate
+                                them
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="A7">
+                            <th>
+                                A7. The robot should instruct the older person
+                                what to do in case of problem with its operation
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="A8">
+                            <th>
+                                A8. The robot should be customizable (adjusted
+                                to individual user preferences and needs)
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="A9">
+                            <th>
+                                A9. Older adults should be able to choose the
+                                functions of the robot they want to use and
+                                disable other ones
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="A10">
+                            <th>
+                                A10. If the robot has been switched off by the
+                                owner, it should reactivate automatically (after
+                                a specific period), so that it is not forgotten
+                                in off mode
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- 2. B. ASSISTIVE ROLE OF THE ROBOT -->
+            <div class="page hidden" id="2" name="B">
+                <div>
+                    <table
+                        class="table-auto border border-black text-center border-collapse"
+                        id="table2"
+                    >
+                        <tr>
+                            <th>B. ASSISTIVE ROLE OF THE ROBOT</th>
+                            <th>I strongly disagree</th>
+                            <th>I partially disagree</th>
+                            <th>I neither agree nor disagree</th>
+                            <th>I partially agree</th>
+                            <th>I strongly agree</th>
+                            <th>Comments</th>
+                        </tr>
+                        <tr id="B1">
+                            <th>
+                                B1. The robot should increase the safety of the
+                                older adult's home: e.g. locking doors,
+                                detecting leaking gas etc.
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="B2">
+                            <th>
+                                B2. The robot should help the older person to
+                                preserve their memory function e.g. by playing
+                                memory games with them
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="B3">
+                            <th>
+                                B1. The robot should increase the safety of the
+                                older adult's home: e.g. locking doors,
+                                detecting leaking gas etc.
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="B4">
+                            <th>
+                                B4. The robot should provide advice about a
+                                healthy diet
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="B5">
+                            <th>
+                                B5. The robot should monitor the environment
+                                (temperature, humidity) and suggest air
+                                conditioning adjustment or windows opening
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="B6">
+                            <th>
+                                B6. The robot should measure physiological
+                                parameters (blood pressure, heart rate, body
+                                temperature) of the elderly person
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="B7">
+                            <th>
+                                B7. The robot should monitor the amount of food
+                                and fluid intake of the owner
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="B8">
+                            <th>
+                                B8. The robot should remind older adults about
+                                appointments
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="B9">
+                            <th>
+                                B9. The robot should older adults about
+                                medication
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="B10">
+                            <th>
+                                B10. The robot should remind about meals times,
+                                drinks
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="B11">
+                            <th>
+                                B11. The robot should observe the behaviour of
+                                the older person to detect falls or changes due
+                                to illness
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="B12">
+                            <th>
+                                B12. The robot should call the centre in case of
+                                emergency
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="B13">
+                            <th>
+                                B13. The robot should help the owner to find
+                                lost objects (e.g. glasses, keys)
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- 3. C. SOCIAL ASPECTS -->
+            <div class="page hidden" id="3" name="C">
+                <div>
+                    <table
+                        class="table-auto border border-black text-center border-collapse"
+                        id="table3"
+                    >
+                        <tr>
+                            <th>C. SOCIAL ASPECTS</th>
+                            <th>I strongly disagree</th>
+                            <th>I partially disagree</th>
+                            <th>I neither agree nor disagree</th>
+                            <th>I partially agree</th>
+                            <th>I strongly agree</th>
+                            <th>Comments</th>
+                        </tr>
+                        <tr id="C1">
+                            <th>
+                                C1. The robot could decrease the sense of
+                                loneliness and improve the mood of the older
+                                person
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="C2">
+                            <th>
+                                C2. The robot could encourage older adults to
+                                enhance their contacts with friends
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="C3">
+                            <th>
+                                C3. The robot should initiate contacts with
+                                others (calling friends, initiating Skype
+                                conversations)
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="C4">
+                            <th>
+                                C4. The robot should have entertainment
+                                functions (e.g. gaming partner, reading aloud or
+                                playing music function)
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="C5">
+                            <th>
+                                C5. The robot should detect the owner’s mood
+                                (facial expression)
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="C6">
+                            <th>
+                                C6. The robot should accompany the owner in
+                                everyday activities (watching TV, preparing
+                                meals)
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- 4. D. ETHICAL ISSUES -->
+            <div class="page hidden" id="4" name="D">
+                <div>
+                    <table
+                        class="table-auto border border-black text-center border-collapse"
+                        id="table4"
+                    >
+                        <tr>
+                            <th>D. ETHICAL ISSUES</th>
+                            <th>I strongly disagree</th>
+                            <th>I partially disagree</th>
+                            <th>I neither agree nor disagree</th>
+                            <th>I partially agree</th>
+                            <th>I strongly agree</th>
+                            <th>Comments</th>
+                        </tr>
+                        <tr id="D1">
+                            <th>
+                                D1. The older person should have control over
+                                the robot
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="D2">
+                            <th>
+                                D2. The older person should be able to send the
+                                robot to its place/docking station and keep it
+                                staying there
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="D3">
+                            <th>
+                                D3. It is acceptable that the robot informs a
+                                family member or caregiver about the older
+                                person’s behaviour/health problems
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="D4">
+                            <th>
+                                D4. The older person should be able to switch
+                                off the robot in specific situations (friends’
+                                visits, privacy reasons etc.)
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                        <tr id="D5">
+                            <th>
+                                D5. It is acceptable that the robot will have
+                                much information about the user (social,
+                                medical, others)
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <input
+                                    class="w-20 border p-3 border-gray-300 rounded"
+                                    type="text"
+                                />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- 5. CREATIVITY BOX -->
+            <div class="page hidden" id="5">
+                <h1 class="text-lg">
+                    Please write down all your ideas/suggestions for other
+                    functions the robot might have, which could be useful in the
+                    everyday life of elderly people. Give free rein to your
+                    imagination. Feel free to report any observations that came
+                    to your mind while answering the questionnaire.
+                </h1>
+                <div class="w-full my-5">
+                    <textarea
+                        class="bg-gray-300 p-3 border w-full h-44 rounded-lg resize-none hover:bg-gray-200 transition duration-200 focus:bg-gray-200 max-h-96"
+                        placeholder="Type in here..."
+                    ></textarea>
+                </div>
+                <div class="flex justify-center py-5">
+                    <button class="submit-all btn-inactive">submit</button>
+                </div>
+            </div>
+            <!-- NEXT PAGE BUTTON SECTION -->
+            <div class="flex justify-around">
+                <div class="flex justify-center mt-8">
+                    <button class="btn-inactive prev-page cursor-not-allowed">
+                        previous page
+                    </button>
+                </div>
+                <div class="flex justify-center mt-8">
+                    <button class="btn-inactive next-page">next page</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Happy_face -->
+        <svg class="hidden">
+            <symbol
+                id="happy_face"
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <g class="happy_face">
+                    <circle
+                        cx="50"
+                        cy="50"
+                        r="34.5"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                    <circle cx="37.5" cy="36.5" r="4.5" fill="black" />
+                    <circle cx="61.5" cy="36.5" r="4.5" fill="black" />
+                    <path
+                        d="M30 60C41.0757 76.7852 57.6488 77.8729 71 60"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                </g>
+            </symbol>
+        </svg>
+        <!-- Semi_happy_face -->
+        <svg class="hidden">
+            <g>
+                <symbol
+                    id="semi_happy_face"
+                    viewBox="0 0 100 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle
+                        cx="50"
+                        cy="50"
+                        r="34.5"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                    <circle cx="37.5" cy="36.5" r="4.5" fill="black" />
+                    <circle cx="61.5" cy="36.5" r="4.5" fill="black" />
+                    <path
+                        d="M30 60C41.8426 66.0924 58.4123 67.2273 71 60"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                </symbol>
+            </g>
+        </svg>
+        <!-- Neutral_face -->
+        <svg class="hidden">
+            <g>
+                <symbol
+                    id="neutral_face"
+                    viewBox="0 0 100 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle
+                        cx="50"
+                        cy="50"
+                        r="34.5"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                    <circle cx="37.5" cy="36.5" r="4.5" fill="black" />
+                    <circle cx="61.5" cy="36.5" r="4.5" fill="black" />
+                    <path
+                        d="M30 60C45 60 59.5 60 71 60"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                </symbol>
+            </g>
+        </svg>
+        <!-- Semi_unhappy_face -->
+        <svg class="hidden">
+            <g>
+                <symbol
+                    id="semi_unhappy_face"
+                    viewBox="0 0 100 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle
+                        cx="50"
+                        cy="50"
+                        r="34.5"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                    <circle cx="37.5" cy="36.5" r="4.5" fill="black" />
+                    <circle cx="61.5" cy="36.5" r="4.5" fill="black" />
+                    <path
+                        d="M30 63.2008C43.9587 53.1289 58.5566 54.0824 71 63.2008"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                </symbol>
+            </g>
+        </svg>
+        <!-- Unhappy_face -->
+        <svg class="hidden">
+            <g>
+                <symbol
+                    id="unhappy_face"
+                    viewBox="0 0 100 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle
+                        cx="50"
+                        cy="50"
+                        r="34.5"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                    <circle cx="37.5" cy="36.5" r="4.5" fill="black" />
+                    <circle cx="61.5" cy="36.5" r="4.5" fill="black" />
+                    <path
+                        d="M30 70C43.9407 46.8929 58.5571 47.778 71 70"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                </symbol>
+            </g>
+        </svg>
+    </body>
+</html>
