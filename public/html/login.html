@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login</title>
+    </head>
+    <body>
+        <h1>Enter your password</h1>
+        <form id="loginForm" method="POST" action="/login">
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="password here"
+                required
+            />
+            <button type="submit">Login</button>
+        </form>
+
+        <script>
+            document
+                .getElementById('loginForm')
+                .addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    const password = document.getElementById('password').value;
+                    fetch('/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ password }),
+                    }).then(response => {
+                        if (response.ok) {
+                            window.location.href = '/generateCSV';
+                        } else {
+                            alert('Niepoprawne hasło');
+                        }
+                    });
+                });
+        </script>
+    </body>
+</html>

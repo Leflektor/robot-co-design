@@ -425,7 +425,7 @@ prevPageBtn.addEventListener('click', () => {
             prevPageBtn.classList.add('cursor-not-allowed');
             app.classList.add('max-w-xl');
             app.classList.remove('max-w-4xl');
-            goal_section.remove('hidden');
+            goal_section.classList.remove('hidden');
         }
         pages.forEach(page => {
             page.classList.add('hidden');

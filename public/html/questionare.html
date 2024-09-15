@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="styles.css" />
+        <script
+            type="module"
+            src="../javaScript/questionareHandler.js"
+        ></script>
+        <title>QUESTIONNAIRE</title>
+    </head>
+    <body class="bg-blue-300 py-10">
+        <div
+            class="app max-w-3xl rounded-lg p-8 w-full m-auto bg-white shadow-lg"
+        >
+            <div
+                class="pb-8 border-b border-blue-900 mb-4 justify-center items-center"
+            >
+                <h1 class="text-xl font-semibold text-center">QUESTIONNAIRE</h1>
+            </div>
+            <div
+                class="inline-flex flex-col items-center w-full p-6 rounded-md bg-blue-200 mt-8 my-4"
+            >
+                <h3>This questionnaire is supposed to gather essential data</h3>
+                <h3>needed to later take part in the robot co-creation.</h3>
+            </div>
+            <!-- QUESTIONS -->
+            <div>
+                <!-- AGE -->
+                <div
+                    class="section inline-flex flex-col items-center w-full my-4"
+                    id="age"
+                >
+                    <label class="mb-4" for="age">Insert your age:</label>
+                    <input
+                        type="number"
+                        id="ageInput"
+                        name="age"
+                        min="1"
+                        max="120"
+                        required
+                        placeholder="your age"
+                        class="p-1 w-24 text-center border border-black rounded-md"
+                    />
+                </div>
+                <!-- GENDER -->
+                <div
+                    class="section inline-flex flex-col items-center w-full my-4"
+                    id="gender"
+                >
+                    <h2>What is your gender?</h2>
+                    <div class="mt-4">
+                        <button class="btn-inactive w-48">MALE</button>
+                        <button class="btn-inactive w-48 ml-5">FEMALE</button>
+                        <button class="btn-inactive w-48 ml-5">OTHER</button>
+                    </div>
+                </div>
+                <!-- MARITAL STATUS -->
+                <div
+                    class="section inline-flex flex-col items-center w-full my-4"
+                    id="maritalStatus"
+                >
+                    <h2>What is your marital status?</h2>
+                    <div class="mt-4">
+                        <button class="btn-inactive w-48">SINGLE</button>
+                        <button class="btn-inactive w-48 ml-5">
+                            MARRIED/IN RELATION
+                        </button>
+                        <button class="btn-inactive w-48 ml-5">WIDOWED</button>
+                    </div>
+                </div>
+                <!-- EDUCATION -->
+                <div
+                    class="section inline-flex flex-col items-center w-full my-4"
+                    id="education"
+                >
+                    <h2>What is your education?</h2>
+                    <div class="mt-4">
+                        <button class="btn-inactive w-48">PRIMARY</button>
+                        <button class="btn-inactive w-48 ml-5">
+                            SECONDARY
+                        </button>
+                        <button class="btn-inactive w-48 ml-5">
+                            VOCATIONAL
+                        </button>
+                    </div>
+                    <div class="mt-4">
+                        <button class="btn-inactive w-48">
+                            HIGHER-PROFESSIONAL
+                        </button>
+                        <button class="btn-inactive w-48 ml-5">
+                            HIGHER-BACHELOR
+                        </button>
+                        <button class="btn-inactive w-48 ml-5">
+                            MASTER LEVEL
+                        </button>
+                    </div>
+                </div>
+                <!-- PLACE OF RESIDENCE -->
+                <div
+                    class="section inline-flex flex-col items-center w-full my-4"
+                    id="placeOfResidence"
+                >
+                    <h2>What is your place of residence?</h2>
+                    <div class="mt-4">
+                        <button class="btn-inactive w-48">VILLAGE</button>
+                        <button class="btn-inactive w-48 ml-5">TOWN</button>
+                        <button class="btn-inactive w-48 ml-5">CITY</button>
+                    </div>
+                </div>
+                <!-- LIVING ARRANGEMNET -->
+                <div
+                    class="section inline-flex flex-col items-center w-full my-4"
+                    id="livingArrangement"
+                >
+                    <h2>What is your living arrangement?</h2>
+                    <div class="mt-4">
+                        <button class="btn-inactive w-48">ALONE</button>
+                        <button class="btn-inactive w-48 ml-5">
+                            WITH SPOUSE
+                        </button>
+                        <button class="btn-inactive w-48 ml-5">
+                            WITH CHILDREN
+                        </button>
+                    </div>
+                    <div class="mt-4">
+                        <button class="btn-inactive w-48">
+                            WITH SPOUSE AND CHILDREN
+                        </button>
+                    </div>
+                </div>
+                <!-- PROFESSION -->
+                <div
+                    class="inline-flex flex-col items-center w-full my-4"
+                    id="profession"
+                >
+                    <label for="age">What is your profession:</label>
+                    <input
+                        type="text"
+                        id="professionInput"
+                        name="profession"
+                        required
+                        placeholder="your profession"
+                        class="p-1 mt-4 w-40 text-center border border-black rounded-md"
+                    />
+                </div>
+                <!-- INSTITUTION CODE -->
+                <div class="flex flex-col items-center">
+                    <div
+                        class="inline-flex flex-col items-center w-3/4 p-3 rounded-md bg-blue-200 my-4"
+                    >
+                        <h3>
+                            If you are participating in the study on behalf of
+                            an institution,
+                        </h3>
+                        <h3>please enter its code here, if not, enter 0.</h3>
+                    </div>
+                    <div
+                        class="inline-flex flex-col items-center w-full my-4"
+                        id="institution_code"
+                    >
+                        <label for="age">What is your profession:</label>
+                        <input
+                            type="text"
+                            id="institution_code_Input"
+                            name="institution_code"
+                            required
+                            placeholder="your institution code"
+                            class="p-1 mt-4 w-40 text-center border border-black rounded-md"
+                        />
+                    </div>
+                </div>
+
+                <!-- QUESTIONS WITH 1-5 ANSWERS -->
+                <div>
+                    <table
+                        class="table-auto border border-black text-center border-collapse my-4"
+                    >
+                        <tr>
+                            <th>Answers:</th>
+                            <th>I strongly disagree</th>
+                            <th>I partially disagree</th>
+                            <th>I neither agree nor disagree</th>
+                            <th>I partially agree</th>
+                            <th>I strongly agree</th>
+                        </tr>
+                        <tr id="computerFamiliarity">
+                            <th>Are you familiar with computers</th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr id="techSysFamiliarity">
+                            <th>
+                                Are you familiar with operating technological
+                                products or systems
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Answers:</th>
+                            <th>very bad</th>
+                            <th>bad</th>
+                            <th>neutral</th>
+                            <th>good</th>
+                            <th>very good</th>
+                        </tr>
+                        <tr id="healthRating">
+                            <th>How do you rate your health status</th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr id="fitnesRating">
+                            <th>
+                                How do you rate your functional status / fitness
+                            </th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Answers:</th>
+                            <th>most lonely</th>
+                            <th>lonely</th>
+                            <th>neutral</th>
+                            <th>sociable</th>
+                            <th>most sociable</th>
+                        </tr>
+                        <tr id="loneliness">
+                            <th>Do you consider yourself lonely?</th>
+                            <td>
+                                <button class="table-btn" name="1">
+                                    <svg class="w-8 h-8">
+                                        <use href="#unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="2">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_unhappy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="3">
+                                    <svg class="w-8 h-8">
+                                        <use href="#neutral_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="4">
+                                    <svg class="w-8 h-8">
+                                        <use href="#semi_happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="table-btn" name="5">
+                                    <svg class="w-8 h-8">
+                                        <use href="#happy_face"></use>
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div
+                    class="inline-flex flex-col items-center w-full p-6 rounded-md bg-blue-200 my-8"
+                >
+                    <h3>
+                        If you answered all the questions please press submit
+                    </h3>
+                    <h3>
+                        to go back to main page and start robot co-creation.
+                    </h3>
+                </div>
+
+                <div class="inline-flex flex-col items-center w-full">
+                    <button class="submit-btn btn-inactive">SUBMIT</button>
+                    <div
+                        class="error flex-col items-center w- p-6 border rounded-md border-blue-900 bg-red-400 my-8 hidden"
+                    >
+                        <h3>Some fields are answerd incorecctly!</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Happy_face -->
+        <svg class="hidden">
+            <symbol
+                id="happy_face"
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <g class="happy_face">
+                    <circle
+                        cx="50"
+                        cy="50"
+                        r="34.5"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                    <circle cx="37.5" cy="36.5" r="4.5" fill="black" />
+                    <circle cx="61.5" cy="36.5" r="4.5" fill="black" />
+                    <path
+                        d="M30 60C41.0757 76.7852 57.6488 77.8729 71 60"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                </g>
+            </symbol>
+        </svg>
+        <!-- Semi_happy_face -->
+        <svg class="hidden">
+            <g>
+                <symbol
+                    id="semi_happy_face"
+                    viewBox="0 0 100 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle
+                        cx="50"
+                        cy="50"
+                        r="34.5"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                    <circle cx="37.5" cy="36.5" r="4.5" fill="black" />
+                    <circle cx="61.5" cy="36.5" r="4.5" fill="black" />
+                    <path
+                        d="M30 60C41.8426 66.0924 58.4123 67.2273 71 60"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                </symbol>
+            </g>
+        </svg>
+        <!-- Neutral_face -->
+        <svg class="hidden">
+            <g>
+                <symbol
+                    id="neutral_face"
+                    viewBox="0 0 100 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle
+                        cx="50"
+                        cy="50"
+                        r="34.5"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                    <circle cx="37.5" cy="36.5" r="4.5" fill="black" />
+                    <circle cx="61.5" cy="36.5" r="4.5" fill="black" />
+                    <path
+                        d="M30 60C45 60 59.5 60 71 60"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                </symbol>
+            </g>
+        </svg>
+        <!-- Semi_unhappy_face -->
+        <svg class="hidden">
+            <g>
+                <symbol
+                    id="semi_unhappy_face"
+                    viewBox="0 0 100 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle
+                        cx="50"
+                        cy="50"
+                        r="34.5"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                    <circle cx="37.5" cy="36.5" r="4.5" fill="black" />
+                    <circle cx="61.5" cy="36.5" r="4.5" fill="black" />
+                    <path
+                        d="M30 63.2008C43.9587 53.1289 58.5566 54.0824 71 63.2008"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                </symbol>
+            </g>
+        </svg>
+        <!-- Unhappy_face -->
+        <svg class="hidden">
+            <g>
+                <symbol
+                    id="unhappy_face"
+                    viewBox="0 0 100 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle
+                        cx="50"
+                        cy="50"
+                        r="34.5"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                    <circle cx="37.5" cy="36.5" r="4.5" fill="black" />
+                    <circle cx="61.5" cy="36.5" r="4.5" fill="black" />
+                    <path
+                        d="M30 70C43.9407 46.8929 58.5571 47.778 71 70"
+                        stroke="black"
+                        stroke-width="6px"
+                    />
+                </symbol>
+            </g>
+        </svg>
+    </body>
+</html>

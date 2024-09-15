@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="styles.css" />
+        <script
+            type="module"
+            src="../javaScript/robotCoCreationHandler.js"
+        ></script>
+        <title>ROBOT CO-CREATION</title>
+    </head>
+    <body class="bg-blue-300 p-8 min-h-screen flex justify-center">
+        <div
+            class="app max-w-6xl w-full rounded-lg py-5 px-8 bg-white shadow-lg flex flex-col"
+        >
+            <!-- HEADER, QUESTION SECTION AND CURRENT QUESTION -->
+            <div class="flex flex-row items-center justify-around">
+                <button class="prev btn-inactive w-40 cursor-not-allowed">prev</button>
+                <div style="width: 400px; height: 152px;">
+                    <h1 class="text-4xl font-semibold text-center mb-4">
+                        ROBOT CO-CREATION
+                    </h1>
+                    <div
+                        class="flex flex-col items-center max-w-lg w-full mb-6"
+                    >
+                        <h3 class="section">Section 1: Physical Features</h3>
+                        <h3 class="sub-section hidden">
+                            5.1. Deployment in a Private Home:
+                        </h3>
+                        <h3 class="question">1.1. Height of the Robot:</h3>
+                    </div>
+                </div>
+                <button class="next btn-inactive w-40">next</button>
+            </div>
+
+            <!-- Section 1 -->
+            <!-- Q1 -->
+            <div id="00" class="flex flex-col h-full">
+                <div class="flex justify-between w-full flex-grow">
+                    <div class="answer answer-image " name="1">
+                        <h1 class="text-center p-4">A. Short (Around 1 metre)</h1>
+                        <img class="p-3 h-40" src="../images/robot.svg" alt="" />
+                    </div>
+                    <div class="answer answer-image" name="2">
+                        <h1 class="text-center p-4">
+                            B. Medium (Around 1.5 metres)
+                        </h1>
+                        <img class="p-3 h-56" src="../images/robot.svg" alt="" />
+                    </div>
+                    <div class="answer answer-image" name="3">
+                        <h1 class="text-center p-4">C. Tall (Around 1.8 metres)</h1>
+                        <img class="p-3" src="../images/robot.svg" alt="" />
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div id="01" class="flex flex-col h-full hidden">
+                <div class="flex justify-between w-full flex-grow">
+                    <div class="answer answer-image" name="1">
+                        <h1 class="text-center p-4">
+                            A. Wheeled (Easier movement, more stable, cheaper)
+                        </h1>
+                        <img class="p-3" src="../images/wheeled_robot.jpeg" alt="" />
+
+                    </div>
+                    <div class="answer answer-image" name="2">
+                        <h1 class="text-center p-4">
+                            B. Legged (More human-like, can navigate stairs, much
+                            more expensive)
+                        </h1>
+                        <img class="p-3" src="../images/legged_robot.jpeg" alt="" />
+
+                    </div>
+                    <div class="answer answer-image" name="3">
+                        <h1 class="text-center p-4">
+                            C. Stationary (Fixed position, interacts from one
+                            location, cheapest option)
+                        </h1>
+                        <img class="p-3" src="../images/stationary_robot.jpeg" alt="" />
+
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div id="02" class="flex flex-col h-full hidden">
+                <div class="flex justify-between w-full flex-grow">
+                    <div class="answer answer-image" name="1">
+                        <h1 class="text-center p-4">
+                            A. Human-like (Facial features, limbs, humanoid
+                            structure)
+                        </h1>
+                    </div>
+                    <div class="answer answer-image" name="2">
+                        <h1 class="text-center p-4">
+                            B. Animal-like (Friendly pet-like appearance)
+                        </h1>
+                    </div>
+                    <div class="answer answer-image" name="3">
+                        <h1 class="text-center p-4">
+                            C. Machine-like (Functional design, minimalistic)
+                        </h1>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div id="03" class="flex flex-col h-full hidden">
+                <div class="flex justify-between w-full flex-grow">
+                    <div class="answer answer-image" name="1">
+                        <h1 class="text-center p-4">
+                            A. Neutral (White, grey, beige)
+                        </h1>
+                    </div>
+                    <div class="answer answer-image" name="2">
+                    <h1 class="text-center p-4">
+                        B. Warm (Soft pastels, light blues)
+                        </h1>
+                    </div>
+                    <div class="answer answer-image" name="3">
+                        <h1 class="text-center p-4">
+                            C. Vibrant (Bright colours, distinct patterns)
+                        </h1>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div id="04" class="flex flex-col h-full hidden">
+                <div class="flex justify-between w-full flex-grow">
+                    <div class="answer answer-image" name="1">
+                        <h1 class="text-center p-4">
+                            A. Compact (Small and portable)
+                        </h1>
+                    </div>
+                    <div class="answer answer-image" name="2">
+                        <h1 class="text-center p-4">
+                            B. Moderate (Easy to handle, fits in small spaces)
+                        </h1>
+                    </div>
+                    <div class="answer answer-image" name="3">
+                        <h1 class="text-center p-4">
+                            C. Large (Prominent, noticeable presence)
+                        </h1>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div id="05" class="flex flex-col h-full hidden">
+                <div class="flex justify-between w-full flex-grow">
+                    <div class="answer answer-image" name="1">
+                        <h1 class="text-center p-4">
+                            A. Detailed (Eyes, mouth, with expressions)
+                        </h1>
+                    </div>
+                    <div class="answer answer-image" name="2">
+                        <h1 class="text-center p-4">
+                            B. Simplified (Basic shapes, minimal expressions)
+                        </h1>
+                    </div>
+                    <div class="answer answer-image" name="3">
+                        <h1 class="text-center p-4">
+                            C. No Face (Screen display or other indicators)
+                        </h1>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div id="06" class="flex flex-col h-full hidden">
+                <div class="flex justify-between w-full flex-grow">
+                    <div class="answer answer-image" name="1">
+                        <h1 class="text-center p-4">
+                            A. No Arms (Minimalistic design)
+                        </h1>
+                    </div>
+                    <div class="answer answer-image" name="2">
+                        <h1 class="text-center p-4">
+                            B. Simple Arms (Basic gestures, no hands)
+                        </h1>
+                    </div>
+                    <div class="answer answer-image" name="3">
+                        <h1 class="text-center p-4">
+                            C. Functional Arms and Hands (Capable of grasping and
+                            holding objects)
+                        </h1>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div id="07" class="flex flex-col h-full hidden">
+                <div class="flex justify-between w-full flex-grow">
+                    <div class="answer answer-image" name="1">
+                        <h1 class="text-center p-4">
+                            A. No Manipulation (Cannot handle objects)
+                        </h1>
+                    </div>
+                    <div class="answer answer-image" name="2">
+                        <h1 class="text-center p-4">
+                            B. Basic Manipulation (Can hold light objects, assist
+                            with simple tasks)
+                        </h1>
+                    </div>
+                    <div class="answer answer-image" name="3">
+                        <h1 class="text-center p-4">
+                            C. Advanced Manipulation (Can handle a variety of
+                            objects with precision)
+                        </h1>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div id="08" class="flex flex-col h-full hidden">
+                <div class="flex justify-between w-full flex-grow">
+                    <div class="answer answer-image" name="1">
+                        <h1 class="text-center p-4">
+                            A. No Support (Cannot assist physically)
+                        </h1>
+                    </div>
+                    <div class="answer answer-image" name="2">
+                        <h1 class="text-center p-4">
+                            B. Some Support (Provides balance, minor physical
+                            assistance)
+                        </h1>
+                    </div>
+                    <div class="answer answer-image" name="3">
+                        <h1 class="text-center p-4">
+                            C. Full Support (Acts as a push trolley, fully supports
+                            mobility)
+                        </h1>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div id="09" class="flex flex-col h-full hidden">
+                <div class="flex justify-between w-full flex-grow">
+                    <div class="answer answer-image" name="1">
+                        <h1 class="text-center p-4">
+                            A. Push Buttons (Simple interface like a classic TV set)
+                        </h1>
+                    </div>
+                    <div class="answer answer-image" name="2">
+                        <h1 class="text-center p-4">
+                            B. Tablet-like (Touchscreen, menu-driven interface)
+                        </h1>
+                    </div>
+                    <div class="answer answer-image" name="3">
+                        <h1 class="text-center p-4">
+                            C. Natural (Voice commands, gesture recognition)
+                        </h1>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+            
+            <!-- Section 2 -->
+            <!-- Q1 -->
+            <div id="10" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Friendly and Smiling (Always cheerful and supportive)</div>
+                <div class="answer answer-text" name="2">B. Calm and Serious (Professional and focused)</div>
+                <div class="answer answer-text" name="3">C. Adaptive (Changes personality based on user's mood)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div id="11" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Verbal (Speaks in a friendly tone)</div>
+                <div class="answer answer-text" name="2">B. Textual (Displays text on a screen)</div>
+                <div class="answer answer-text" name="3">C. Non-verbal (Uses lights, gestures, or sounds)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div id="12" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. High Interaction (Engages in conversations, remembers preferences)</div>
+                <div class="answer answer-text" name="2">B. Moderate Interaction (Responds to commands, basic conversation)</div>
+                <div class="answer answer-text" name="3">C. Low Interaction (Follows instructions, minimal conversation)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div id="13" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Memory Aid (Reminds about appointments, medication)</div>
+                <div class="answer answer-text" name="2">B. Physical Assistance (Helps with movement or fetching objects)</div>
+                <div class="answer answer-text" name="3">C. Safety Monitoring (Detects falls, alerts in emergencies)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div id="14" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Companionship (Keeps company, engages in hobbies)</div>
+                <div class="answer answer-text" name="2">B. Social Connector (Initiates calls, video chats with family/friends)</div>
+                <div class="answer answer-text" name="3">C. Entertainment (Plays music, games, reads aloud)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div id="15" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Encouraging (Provides motivation and positive reinforcement)</div>
+                <div class="answer answer-text" name="2">B. Empathetic (Understands and comforts in distress)</div>
+                <div class="answer answer-text" name="3">C. Neutral (Provides factual information without emotional engagement)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div id="16" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Highly Customizable (User can change many settings)</div>
+                <div class="answer answer-text" name="2">B. Some Customization (Basic settings can be adjusted)</div>
+                <div class="answer answer-text" name="3">C. Fixed Settings (Pre-configured, no user customization)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div id="17" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. None (No reminders for physical exercise)</div>
+                <div class="answer answer-text" name="2">B. Reminders (Encourages regular physical activity with reminders)</div>
+                <div class="answer answer-text" name="3">C. Exercise with Robot (Engages in physical exercises alongside the user)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div id="18" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. None (No monitoring of food/fluid intake)</div>
+                <div class="answer answer-text" name="2">B. Basic (Tracks general food and fluid intake)</div>
+                <div class="answer answer-text" name="3">C. Extended (Provides detailed diet analysis, such as glucose levels for diabetes or lipid content for high cholesterol)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div id="19" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. None (No dietary recommendations)</div>
+                <div class="answer answer-text" name="2">B. Reminders Only (Provides reminders to follow dietary plans)</div>
+                <div class="answer answer-text" name="3">C. Recipe Suggestions (Offers recipe suggestions tailored to the user's dietary needs)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <!-- Q1 -->
+            <div id="20" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Active Companionship (Engages in conversations, keeps company)</div>
+                <div class="answer answer-text" name="2">B. Passive Presence (Stays nearby, provides comfort by presence alone)</div>
+                <div class="answer answer-text" name="3">C. On-demand Companionship (Available when the user seeks interaction)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div id="21" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Advanced (Detects user’s mood through facial expression and voice)</div>
+                <div class="answer answer-text" name="2">B. Basic (Responds to user’s tone of voice)</div>
+                <div class="answer answer-text" name="3">C. None (Does not detect or respond to mood)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div id="22" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Proactive (Initiates contact with friends or family, suggests social activities)</div>
+                <div class="answer answer-text" name="2">B. Reactive (Waits for user to initiate social interaction)</div>
+                <div class="answer answer-text" name="3">C. None (Does not encourage social interaction)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div id="23" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Expressive (Displays a range of emotions to comfort or entertain)</div>
+                <div class="answer answer-text" name="2">B. Subtle (Shows minimal emotional expressions)</div>
+                <div class="answer answer-text" name="3">C. Neutral (No emotional expression)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div id="24" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Broad Range (Plays games, music, reads stories, watches movies together)</div>
+                <div class="answer answer-text" name="2">B. Limited (Focuses on one type of entertainment, e.g., only music)</div>
+                <div class="answer answer-text" name="3">C. None (No entertainment functions)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div id="25" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. High Engagement (Engages in activities that stimulate memory, cognitive exercises)</div>
+                <div class="answer answer-text" name="2">B. Moderate Engagement (Provides occasional memory games or puzzles)</div>
+                <div class="answer answer-text" name="3">C. Low Engagement (Minimal cognitive interaction, just reminders)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div id="26" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Social Media Integration (Connects with social media to share updates, photos)</div>
+                <div class="answer answer-text" name="2">B. Basic Communication (Facilitates calls and video chats)</div>
+                <div class="answer answer-text" name="3">C. Limited Interaction (Only occasional communication prompts)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div id="27" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Comprehensive (Monitors and reports changes in behavior to caregivers)</div>
+                <div class="answer answer-text" name="2">B. Basic (Notifies caregivers only in case of significant changes)</div>
+                <div class="answer answer-text" name="3">C. None (Does not monitor behavior)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Section 4 -->
+            <!-- Q1 -->
+            <div id="30" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. High Privacy (Minimal data collection, no external sharing)</div>
+                <div class="answer answer-text" name="2">B. Moderate Privacy (Shares data with approved family members)</div>
+                <div class="answer answer-text" name="3">C. Low Privacy (Fully monitored for safety)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div id="31" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Full Integration (Controls lights, thermostat, door locks, etc.)</div>
+                <div class="answer answer-text" name="2">B. Partial Integration (Controls some smart home devices)</div>
+                <div class="answer answer-text" name="3">C. No Integration (No connection to smart home devices)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div id="32" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Comprehensive (Monitors home security, alerts in case of intrusions)</div>
+                <div class="answer answer-text" name="2">B. Basic (Notifies only in case of emergencies)</div>
+                <div class="answer answer-text" name="3">C. None (No security monitoring)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div id="33" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. User-controlled (User decides what data is shared and with whom)</div>
+                <div class="answer answer-text" name="2">B. Pre-set Options (Data sharing settings are pre-configured)</div>
+                <div class="answer answer-text" name="3">C. Open Sharing (Data is freely shared with approved caregivers and services)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div id="34" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Immediate Response (Automatically contacts emergency services in case of serious issues)</div>
+                <div class="answer answer-text" name="2">B. User-confirmed (Asks the user before contacting emergency services)</div>
+                <div class="answer answer-text" name="3">C. No Emergency Contact (Does not contact emergency services)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Section 5 -->
+            <!-- 5.1 -->
+            <!-- Q1 -->
+            <div id="40" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Regular On-site Support (Frequent visits from technical personnel)</div>
+                <div class="answer answer-text" name="2">B. Remote Support (Technical issues resolved through remote assistance)</div>
+                <div class="answer answer-text" name="3">C. Minimal Support (Only in case of significant issues)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div id="41" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Comprehensive Training (In-depth training sessions with regular refreshers)</div>
+                <div class="answer answer-text" name="2">B. Basic Training (Initial training session with instructional materials)</div>
+                <div class="answer answer-text" name="3">C. Self-Guided Learning (User learns at their own pace using provided materials)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div id="42" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Active Involvement (Family receives training and supports the user regularly)</div>
+                <div class="answer answer-text" name="2">B. Moderate Involvement (Family is involved occasionally for support)</div>
+                <div class="answer answer-text" name="3">C. Minimal Involvement (Family is informed but not actively involved)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div id="43" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Personalized Training (Training tailored to the user’s abilities and needs)</div>
+                <div class="answer answer-text" name="2">B. Group Training (User participates in training with others, less personalized)</div>
+                <div class="answer answer-text" name="3">C. No Special Training (User learns through trial and error with some guidance)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- 5.2 -->
+            <!-- Q1 -->
+            <div id="50" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. On-site Technical Team (Dedicated technical team available at the facility)</div>
+                <div class="answer answer-text" name="2">B. Regular Maintenance Visits (Scheduled visits from external technical personnel)</div>
+                <div class="answer answer-text" name="3">C. As-needed Support (Technical support provided only when requested)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div id="51" class="flex flex-col items-center w-full h-full pt-6 justify-between hidden">
+                <div class="answer answer-text" name="1">A. Comprehensive Training (In-depth training for all staff members)</div>
+                <div class="answer answer-text" name="2">B. Targeted Training (Training provided only to specific staff members)</div>
+                <div class="answer answer-text" name="3">C. Basic Overview (General introduction to the robot’s functions and operations)</div>
+                <div class="flex justify-center w-full">
+                    <input
+                    class="co-creation-comment"
+                    type="text"
+                    placeholder="Here you can type in your comment"
+                    ></input>
+                </div>
+            </div>
+
+            <!-- Section 6 -->
+            <!-- Submit your answers -->
+            <div class="submit-sec flex flex-col items-center hidden">
+                <div class="inline-flex flex-col items-center w-1/2 p-6 rounded-md bg-blue-200">
+                    <h3>
+                        If you have answered all the questions,
+                    </h3>
+                    <h3>
+                        you can submit all your answers and go back to the main page.
+                    </h3>
+                    <h3>
+                        If needed, you can also go back and change your answers.
+                    </h3>
+                </div>
+                <button class="btn-inactive submit-btn mt-16 p-40 w-40 h-20 text-3xl font-semibold">
+                    submit
+                </button>
+                <div class="error flex-col items-center w- p-4  rounded-md bg-red-400 my-8 hidden">
+                    <h3>You left some questions unanswered!</h3>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Generate CSV</title>
+    </head>
+    <body>
+        <h1>Generate CSV</h1>
+        <input
+            type="date"
+            id="startDate"
+            placeholder="Wybierz datę początkową"
+        />
+        <input type="date" id="endDate" placeholder="Wybierz datę końcową" />
+        <button onclick="downloadCSV()">Download CSV</button>
+
+        <script>
+            function downloadCSV() {
+                const startDate = document.getElementById('startDate').value;
+                const endDate = document.getElementById('endDate').value;
+
+                if (!startDate || !endDate) {
+                    alert('Please enter start and end date');
+                    return;
+                }
+
+                const url = `/downloadDBRecordsToCSV?startDate=${startDate}&endDate=${endDate}`;
+                window.location.href = url; // Przekierowanie do pobrania pliku
+            }
+        </script>
+    </body>
+</html>

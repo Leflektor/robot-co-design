@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .btn-inactive {
-    @apply bg-gray-300 border border-black rounded  p-2 hover:bg-gray-500 transition duration-300;
+    @apply bg-gray-300 rounded p-2 hover:bg-gray-500 transition duration-300;
 }
 
 .btn-active {
-    @apply bg-gray-600 border border-black rounded p-2;
+    @apply bg-gray-600 border rounded p-2;
 }
 
 .text-input {
@@ -26,6 +26,25 @@ td {
 
 .table-btn-active {
     @apply rounded-md border border-black bg-gray-500 w-14 h-10 inline-flex justify-center items-center;
+}
+
+.answer-image {
+    @apply bg-gray-300 w-1/4 rounded-2xl mx-4 cursor-pointer flex flex-col justify-between items-center hover:bg-gray-500 transition duration-300;
+}
+.answer-image-chosen {
+    @apply bg-gray-500 w-1/4 rounded-2xl mx-4 cursor-pointer flex flex-col justify-between items-center;
+}
+
+.answer-text {
+    @apply w-4/5 bg-gray-300 rounded p-3 cursor-pointer hover:bg-gray-500 transition duration-300;
+}
+
+.answer-text-chosen {
+    @apply w-4/5 bg-gray-500 rounded p-3 cursor-pointer;
+}
+
+.co-creation-comment {
+    @apply bg-gray-300 p-3 w-3/4 mt-5 rounded-lg resize-none hover:bg-gray-200 transition duration-200 focus:bg-gray-200  text-center;
 }
 
 textarea::-webkit-scrollbar {
