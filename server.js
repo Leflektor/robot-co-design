@@ -17,13 +17,15 @@ const connection = mysql.createConnection({
     database: process.env.DB,
 });
 
-// Connect to the database
-connection.connect(err => {
-    if (err) {
-        console.error('Error connecting: ' + err.stack);
-        return;
-    }
-    console.log('Connected as id ' + connection.threadId);
+const pool = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    port: process.env.DB_PORT,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB,
+    waitForConnections: true,
+    connectionLimit: 10, // Limit połączeń w puli
+    queueLimit: 0,
 });
 
 // Middlewares
@@ -93,7 +95,7 @@ app.get('/downloadDBRecordsToCSV', isAuthenticated, (req, res) => {
     const query =
         'SELECT * FROM robot_co_creation_answers WHERE DATE(date) BETWEEN ? AND ?';
 
-    connection.query(query, [startDate, endDate], (err, results) => {
+    pool.query(query, [startDate, endDate], (err, results) => {
         if (err) {
             console.error('Error while fetching data:', err);
             return res.status(500).send('Data fetching error');
@@ -105,7 +107,7 @@ app.get('/downloadDBRecordsToCSV', isAuthenticated, (req, res) => {
         const csvWriterInstance = csvWriter({
             path: filePath,
             header: [
-                { id: 'id', title: 'ID' },
+                { id: 'ID', title: 'ID' },
                 { id: 'date', title: 'Date' },
                 { id: 'S0', title: 'S0' },
                 { id: 'S1', title: 'S1' },
@@ -162,13 +164,20 @@ app.post('/login', (req, res) => {
 
 // Endpoint for sending data to DB
 app.post('/', (req, res) => {
+    console.log('Received POST data:', JSON.stringify(req.body, null, 2));
+    const data = req.body;
     const query =
         'INSERT INTO robot_co_creation_answers (date, S0, S1, S2, S3, S4, S5, surveyedData) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
 
-    const data = req.body;
+    const { date, S0, S1, S2, S3, S4, S5, surveyedData } = req.body;
+    // Sprawdź, czy wszystkie dane są obecne
+    if (!date || !S0 || !S1 || !S2 || !S3 || !S4 || !S5 || !surveyedData) {
+        console.error('Missing required fields:', req.body);
+        return res.status(400).send('Missing required fields');
+    }
 
     // Execute the query
-    connection.query(
+    pool.query(
         query,
         [
             data.date,
@@ -180,15 +189,21 @@ app.post('/', (req, res) => {
             JSON.stringify(data.S5),
             JSON.stringify(data.surveyedData),
         ],
-        (err, results, fields) => {
+        (err, results) => {
             if (err) {
                 console.error('Error executing query: ', err);
-                return res.status(500).send({ error: 'Error executing query' });
+                return res.status(500).send({
+                    status: 'error',
+                    message:
+                        'Error during data submission. Please click the button again to try submitting once more.',
+                    data: data,
+                });
             }
             console.log('Inserted record ID: ', results.insertId);
             res.status(201).send({
+                status: 'success',
                 message: 'Record inserted succesfully',
-                inseredId: results.insertId,
+                insertedId: results.insertId,
                 data: data,
             });
         },

@@ -1,5 +1,3 @@
-const serverURL = 'http://localhost:3000/';
-
 const surveyedData = JSON.parse(localStorage.getItem('surveyedData'));
 
 const sectionText = document.querySelector('.section');
@@ -13,6 +11,12 @@ const submitSection = document.querySelector('.submit-sec');
 const submitButton = document.querySelector('.submit-btn');
 
 const errorMessage = document.querySelector('.error');
+
+const sectionDescDiv = document.getElementById('sec-div');
+
+const textarea = document.querySelector('textarea');
+
+const thankYouSection = document.getElementById('thank_you');
 
 let sId = 0;
 let qId = 0;
@@ -144,7 +148,7 @@ const answers = {
 };
 
 async function sendPostReq(data) {
-    const res = await fetch(serverURL, {
+    const res = await fetch('/', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
@@ -153,6 +157,7 @@ async function sendPostReq(data) {
     });
     const response = await res.json();
     console.log(response);
+    return response;
 }
 
 function questionHandler(e) {
@@ -185,6 +190,7 @@ function questionHandler(e) {
                 subSectionText.classList.add('hidden');
                 nextButton.classList.add('cursor-not-allowed');
                 submitSection.classList.remove('hidden');
+                sectionDescDiv.classList.add('hidden');
                 sId++;
                 qId = 0;
             } else {
@@ -226,6 +232,7 @@ prevButton.addEventListener('click', () => {
         sectionText.classList.remove('hidden');
         questionText.classList.remove('hidden');
         subSectionText.classList.remove('hidden');
+        sectionDescDiv.classList.remove('hidden');
         submitSection.classList.add('hidden');
         sId--;
         qId = questionsDescriptions[sId].length - 1;
@@ -269,6 +276,8 @@ nextButton.addEventListener('click', () => {
             sectionText.classList.add('hidden');
             questionText.classList.add('hidden');
             subSectionText.classList.add('hidden');
+            sectionDescDiv.classList.add('hidden');
+
             nextButton.classList.add('cursor-not-allowed');
             submitSection.classList.remove('hidden');
             sId++;
@@ -298,7 +307,9 @@ nextButton.addEventListener('click', () => {
     }
 });
 
-submitButton.addEventListener('click', () => {
+submitButton.addEventListener('click', submitButtonHandler);
+
+async function submitButtonHandler() {
     if (
         Object.values(answers).some(el =>
             Object.values(el).some(value => value.ans == ''),
@@ -315,18 +326,22 @@ submitButton.addEventListener('click', () => {
             }
         }
 
-        answers['date'] = new Date().toJSON();
-        // const year = 2024;
-        // const month = 5; // 0-11
-        // const day = 25;
-
-        // answers['date'] = new Date(
-        //     Date.UTC(year, month, day, 0, 0, 0, 0),
-        // ).toJSON();
-
+        answers['date'] = new Date()
+            .toISOString()
+            .slice(0, 19)
+            .replace('T', ' ');
         answers['surveyedData'] = surveyedData;
-        sendPostReq(answers);
+        answers['surveyedData'].creativityBox = textarea.value;
+        const response = await sendPostReq(answers);
+        console.log(response.status);
 
-        window.location.href = '/mainPage';
+        if (response.status === 'success') {
+            submitSection.classList.add('hidden');
+            thankYouSection.classList.remove('hidden');
+            prevButton.classList.add('hidden');
+            nextButton.classList.add('hidden');
+        } else if (response.status === 'error') {
+            alert('Error occured, try submitiing again!'); // Informacja dla użytkownika o błędzie
+        }
     }
-});
+}
