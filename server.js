@@ -2,31 +2,12 @@ const dotenv = require('dotenv');
 const express = require('express');
 const app = express();
 const session = require('express-session');
-const mysql = require('mysql2');
-const csvWriter = require('csv-writer').createObjectCsvWriter;
-const fs = require('fs');
+const register = require('./controllers/registerController');
+const downloadToCSV = require('./controllers/downloadToCSVController');
+const verify = require('./controllers/verifyController');
+const pool = require('./utils/db');
 
 dotenv.config({ path: './config.env' });
-
-// Create the connection to database
-const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    port: process.env.DB_PORT,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB,
-});
-
-const pool = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    port: process.env.DB_PORT,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB,
-    waitForConnections: true,
-    connectionLimit: 10, // Limit połączeń w puli
-    queueLimit: 0,
-});
 
 // Middlewares
 app.use(express.json());
@@ -45,7 +26,7 @@ function isAuthenticated(req, res, next) {
     if (req.session.isAuthenticated) {
         next();
     } else {
-        res.redirect('/login'); // Przekierowanie do strony logowania, jeśli nie zalogowano
+        res.redirect('/loginToCSV'); // Przekierowanie do strony logowania, jeśli nie zalogowano
     }
 }
 
@@ -60,6 +41,14 @@ app.get('/mainPage', (req, res) => {
     res.sendFile(`${__dirname}/public/html/mainPage.html`);
 });
 
+app.get('/login', (req, res) => {
+    res.sendFile(`${__dirname}/public/html/login.html`);
+});
+
+app.get('/register', (req, res) => {
+    res.sendFile(`${__dirname}/public/html/register.html`);
+});
+
 app.get('/questionare', (req, res) => {
     res.sendFile(`${__dirname}/public/html/questionare.html`);
 });
@@ -72,9 +61,15 @@ app.get('/unraq2', (req, res) => {
     res.sendFile(`${__dirname}/public/html/unraq2.html`);
 });
 
-app.get('/login', (req, res) => {
-    res.sendFile(`${__dirname}/public/html/login.html`);
+app.get('/loginToCSV', (req, res) => {
+    res.sendFile(`${__dirname}/public/html/loginToCSV.html`);
 });
+
+app.get('/verified', (req, res) => {
+    res.sendFile(`${__dirname}/public/html/verified.html`);
+});
+
+app.get('/verify', verify);
 
 // Endpoint protected, accesable only after authentication
 app.get('/generateCSV', isAuthenticated, (req, res) => {
@@ -82,75 +77,11 @@ app.get('/generateCSV', isAuthenticated, (req, res) => {
 });
 
 // Endpoint for downloading records in CSV
-app.get('/downloadDBRecordsToCSV', isAuthenticated, (req, res) => {
-    const startDate = req.query.startDate; // startDate and endDate delivered as query params
-    const endDate = req.query.endDate;
-
-    if (!startDate || !endDate) {
-        return res
-            .status(400)
-            .send('Missing required parameters: startDate and endDate');
-    }
-
-    const query =
-        'SELECT * FROM robot_co_creation_answers WHERE DATE(date) BETWEEN ? AND ?';
-
-    pool.query(query, [startDate, endDate], (err, results) => {
-        if (err) {
-            console.error('Error while fetching data:', err);
-            return res.status(500).send('Data fetching error');
-        }
-
-        const filePath = 'filtered_records.csv';
-        const userFileName = `filtered_records_~${startDate}-${endDate}.csv`;
-
-        const csvWriterInstance = csvWriter({
-            path: filePath,
-            header: [
-                { id: 'ID', title: 'ID' },
-                { id: 'date', title: 'Date' },
-                { id: 'S0', title: 'S0' },
-                { id: 'S1', title: 'S1' },
-                { id: 'S2', title: 'S2' },
-                { id: 'S3', title: 'S3' },
-                { id: 'S4', title: 'S4' },
-                { id: 'S5', title: 'S5' },
-                { id: 'surveyedData', title: 'SurveyedData' },
-            ],
-        });
-
-        csvWriterInstance
-            .writeRecords(results)
-            .then(() => {
-                console.log('Data successfully saved to CSV file.');
-
-                res.download(filePath, userFileName, err => {
-                    if (err) {
-                        console.error('Error while downloading the file:', err);
-                        return res.status(500).send('File download error');
-                    }
-
-                    // Deleting file after sending
-                    fs.unlink(filePath, err => {
-                        if (err) {
-                            console.error(
-                                'Error while deleting the file:',
-                                err,
-                            );
-                        }
-                    });
-                });
-            })
-            .catch(err => {
-                console.error('Error while saving to CSV file:', err);
-                return res.status(500).send('CSV file creation error');
-            });
-    });
-});
+app.get('/downloadToCSV', isAuthenticated, downloadToCSV);
 
 // post requests
 // Endpoint for password checking
-app.post('/login', (req, res) => {
+app.post('/loginToCSV', (req, res) => {
     const { password } = req.body;
 
     if (password === process.env.CORRECT_PASSWORD) {
@@ -161,6 +92,9 @@ app.post('/login', (req, res) => {
         res.status(401).send('Niepoprawne hasło');
     }
 });
+
+// Endpoint for getting users registration data
+app.post('/register', register);
 
 // Endpoint for sending data to DB
 app.post('/', (req, res) => {

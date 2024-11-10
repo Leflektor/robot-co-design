@@ -11,14 +11,17 @@
     "license": "ISC",
     "devDependencies": {
         "dotenv": "^16.4.5",
-        "express": "^4.19.2",
+        "maildev": "^2.1.0",
         "nodemon": "^3.1.0"
     },
     "dependencies": {
         "csv-writer": "^1.6.0",
+        "express": "^4.21.1",
         "express-session": "^1.18.0",
         "mysql2": "^3.10.1",
+        "nodemailer": "^6.9.16",
         "prettier": "^3.2.5",
-        "tailwindcss": "^3.4.3"
+        "tailwindcss": "^3.4.3",
+        "uuid": "^11.0.2"
     }
 }
