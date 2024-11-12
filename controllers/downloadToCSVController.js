@@ -15,11 +15,8 @@ async function downloadToCSV(req, res) {
     const query =
         'SELECT * FROM robot_co_creation_answers WHERE DATE(date) BETWEEN ? AND ?';
 
-    pool.query(query, [startDate, endDate], (err, results) => {
-        if (err) {
-            console.error('Error while fetching data:', err);
-            return res.status(500).send('Data fetching error');
-        }
+    try {
+        const [results] = await pool.query(query, [startDate, endDate]);
 
         const filePath = 'filtered_records.csv';
         const userFileName = `filtered_records_~${startDate}-${endDate}.csv`;
@@ -42,7 +39,9 @@ async function downloadToCSV(req, res) {
         csvWriterInstance
             .writeRecords(results)
             .then(() => {
-                console.log('Data successfully saved to CSV file.');
+                console.log(
+                    `${results.length} records found beetwen ${startDate} and ${endDate} and successfully saved to CSV file.`,
+                );
 
                 res.download(filePath, userFileName, err => {
                     if (err) {
@@ -65,7 +64,10 @@ async function downloadToCSV(req, res) {
                 console.error('Error while saving to CSV file:', err);
                 return res.status(500).send('CSV file creation error');
             });
-    });
+    } catch (err) {
+        console.error('Error while fetching data:', err);
+        return res.status(500).send('Data fetching error');
+    }
 }
 
 module.exports = downloadToCSV;

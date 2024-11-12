@@ -29,16 +29,9 @@ async function register(req, res) {
         // makes sure that next id will be incremented from the last one in the table, not the ones which were deleted
         await pool.query(`ALTER TABLE admins AUTO_INCREMENT = 1;`);
 
-        const [lastRecord] = await pool.query(
-            'SELECT MAX(id) AS maxId FROM admins',
-        );
-
-        const nextId = (lastRecord[0].maxId || 0) + 1;
-        const userGroupTableName = `user_group_${nextId}`;
-
         // inserting user data to 'admins' table
-        await pool.query(
-            'INSERT INTO admins (first_name, last_name, institution_name, email, login, password, purpose_of_use, permissions, verification_token, is_verified, access_code, user_answers_group) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        const newRecord = await pool.query(
+            'INSERT INTO admins (first_name, last_name, institution_name, email, login, password, purpose_of_use, permissions, verification_token, is_verified, access_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
             [
                 firstname,
                 lastName,
@@ -51,26 +44,10 @@ async function register(req, res) {
                 confirmationToken,
                 false,
                 accessCode,
-                userGroupTableName,
             ],
         );
 
-        console.log(`Added new user with ID: ${nextId}`);
-
-        // creating new table for common users answers affiliated with local admin code
-        await pool.query(`
-                    CREATE TABLE ${userGroupTableName} (
-                      ID int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                      date timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-                      S0 longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(S0)),
-                      S1 longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(S1)),
-                      S2 longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(S2)),
-                      S3 longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(S3)),
-                      S4 longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(S4)),
-                      S5 longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(S5)),
-                      surveyedData longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(surveyedData))
-                    )
-                `);
+        console.log(`Added new user with ID: ${newRecord[0].insertId}`);
 
         // generating confirmation link after succesfull database operations
         const confirmationLink = `http://localhost:3000/verify?token=${confirmationToken}`;

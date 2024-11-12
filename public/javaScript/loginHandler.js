@@ -19,6 +19,25 @@ const fields = {
 const submitPasswordButton = document.getElementById('submit-password');
 const submitCodeButton = document.getElementById('submit-code');
 
+async function sendPostReq(data, url) {
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+
+    const res = await response.json();
+
+    if (res.status === 'success') {
+        window.location.href = '/mainPage';
+    }
+    if (res.status === 'fail' || res.status === 'error') {
+        alert(res.message);
+    }
+}
+
 showIcons.forEach(el => {
     el.addEventListener('click', function () {
         this.classList.toggle('fa-eye-slash');
@@ -43,10 +62,25 @@ registerButton.addEventListener('click', () => {
     localStorage.clear();
 });
 
-submitPasswordButton.addEventListener('click', e => {
+submitPasswordButton.addEventListener('click', async e => {
     e.preventDefault();
+
+    const loginAndPassword = {
+        login: fields.login.value,
+        password: fields.password.value,
+    };
+    const url = '/login';
+
+    await sendPostReq(loginAndPassword, url);
 });
 
-submitCodeButton.addEventListener('click', e => {
+submitCodeButton.addEventListener('click', async e => {
     e.preventDefault();
+
+    const affiliationCode = {
+        affiliationCode: fields['affiliation-code'].value,
+    };
+    const url = '/checkAffiliationCode';
+
+    await sendPostReq(affiliationCode, url);
 });
