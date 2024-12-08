@@ -4,28 +4,89 @@ async function sendToDB(req, res) {
     const data = req.body;
     const { date, S0, S1, S2, S3, S4, S5, surveyedData } = req.body;
 
-    console.log('Received POST data:', JSON.stringify(data, null, 2));
+    // console.log('Received POST data:', JSON.stringify(data, null, 2));
 
-    // Sprawdź, czy wszystkie dane są obecne
+    // checking whether all necessery data is present
     if (!date || !S0 || !S1 || !S2 || !S3 || !S4 || !S5 || !surveyedData) {
         console.error('Missing required fields:', req.body);
         return res.status(400).send('Missing required fields');
     }
 
-    const query =
-        'INSERT INTO robot_co_creation_answers (date, S0, S1, S2, S3, S4, S5, surveyedData) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+    const {
+        age,
+        gender,
+        maritalStatus,
+        education,
+        placeOfResidence,
+        livingArrangement,
+        profession,
+        computerFamiliarity,
+        techSysFamiliarity,
+        loneliness,
+        healthRating,
+        fitnessRating,
+        creativityBox,
+        affiliationCode,
+    } = surveyedData;
 
+    const variables = [
+        age,
+        gender,
+        maritalStatus,
+        education,
+        placeOfResidence,
+        livingArrangement,
+        profession,
+        computerFamiliarity,
+        techSysFamiliarity,
+        loneliness,
+        healthRating,
+        fitnessRating,
+        creativityBox,
+        affiliationCode,
+    ];
+
+    // Sprawdź, które zmienne są undefined
+    for (const [key, value] of Object.entries(variables)) {
+        if (value === undefined) {
+            return res.status(400).send('Missing required fields');
+        }
+    }
+
+    // const query =
+    //     'INSERT INTO robot_co_creation_answers (date, S0, S1, S2, S3, S4, S5, surveyedData) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+
+    const query = `
+        INSERT INTO robot_co_creation_answers (
+            date, age, gender, maritalStatus, education, placeOfResidence, livingArrangement, profession,
+            computerFamiliarity, techSysFamiliarity, loneliness, healthRating, fitnessRating, creativityBox, affiliationCode,
+            S0, S1, S2, S3, S4, S5
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
     try {
         // Execute the query
         const [results] = await pool.query(query, [
             date,
+            age,
+            gender,
+            maritalStatus,
+            education,
+            placeOfResidence,
+            livingArrangement,
+            profession,
+            computerFamiliarity,
+            techSysFamiliarity,
+            loneliness,
+            healthRating,
+            fitnessRating,
+            creativityBox,
+            affiliationCode,
             JSON.stringify(S0),
             JSON.stringify(S1),
             JSON.stringify(S2),
             JSON.stringify(S3),
             JSON.stringify(S4),
             JSON.stringify(S5),
-            JSON.stringify(surveyedData),
         ]);
 
         console.log('Inserted record ID: ', results.insertId);

@@ -31,6 +31,7 @@ async function sendPostReq(data, url) {
     const res = await response.json();
 
     if (res.status === 'success') {
+        localStorage.clear();
         window.location.href = '/mainPage';
     }
     if (res.status === 'fail' || res.status === 'error') {
@@ -59,7 +60,6 @@ enterButton.addEventListener('click', () => {
 
 registerButton.addEventListener('click', () => {
     window.location.href = '/register';
-    localStorage.clear();
 });
 
 submitPasswordButton.addEventListener('click', async e => {

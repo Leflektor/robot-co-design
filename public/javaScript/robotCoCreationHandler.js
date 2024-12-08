@@ -16,10 +16,11 @@ const sectionDescDiv = document.getElementById('sec-div');
 
 const textarea = document.querySelector('textarea');
 
-const thankYouSection = document.getElementById('thank_you');
+const thankYouSection = document.getElementById('thank-you');
+const goBackButton = document.getElementById('go-back');
 
-let sId = 0;
-let qId = 0;
+let sId = 0; //sectionID
+let qId = 0; // questionID
 
 const comments = document.querySelectorAll('.co-creation-comment');
 
@@ -148,7 +149,7 @@ const answers = {
 };
 
 async function sendPostReq(data) {
-    const res = await fetch('/', {
+    const res = await fetch('/sendToDB', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
@@ -332,6 +333,7 @@ async function submitButtonHandler() {
             .replace('T', ' ');
         answers['surveyedData'] = surveyedData;
         answers['surveyedData'].creativityBox = textarea.value;
+
         const response = await sendPostReq(answers);
         console.log(response.status);
 
@@ -345,3 +347,8 @@ async function submitButtonHandler() {
         }
     }
 }
+
+goBackButton.addEventListener('click', () => {
+    localStorage.setItem('coCreationPassed', true);
+    window.location.href = '/mainPage';
+});

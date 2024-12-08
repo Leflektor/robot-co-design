@@ -1,12 +1,19 @@
 const ageInput = document.getElementById('ageInput');
 const professionInput = document.getElementById('professionInput');
-const institutionCodeInput = document.getElementById('institution_code_Input');
 
 const genderSection = document.getElementById('gender');
 const maritalSection = document.getElementById('maritalStatus');
 const educationSection = document.getElementById('education');
 const residenceSection = document.getElementById('placeOfResidence');
 const livingSection = document.getElementById('livingArrangement');
+
+const allSections = [
+    genderSection,
+    maritalSection,
+    educationSection,
+    residenceSection,
+    livingSection,
+];
 
 const questions1_5 = document.querySelector('table');
 
@@ -25,16 +32,8 @@ const surveyedData = {
     techSysFamiliarity: '',
     loneliness: '',
     healthRating: '',
-    fitnesRating: '',
+    fitnessRating: '',
 };
-
-const allSections = [
-    genderSection,
-    maritalSection,
-    educationSection,
-    residenceSection,
-    livingSection,
-];
 
 function sectionsHandler(e) {
     e.preventDefault();
@@ -84,15 +83,15 @@ questions1_5.addEventListener('click', tableHandler);
 submitButton.addEventListener('click', () => {
     const age = ageInput.value;
     const profession = professionInput.value;
-    const institutionCode = institutionCodeInput.value;
 
-    if (age && profession && institutionCode) {
+    if (age && profession) {
         surveyedData.age = age;
         surveyedData.profession = profession;
-        surveyedData.institutionCode = institutionCode;
         // check if any value is empty in surveyedData
         if (!Object.values(surveyedData).some(value => value == '')) {
             localStorage.setItem('surveyedData', JSON.stringify(surveyedData));
+            console.log(surveyedData);
+
             window.location.href = '/mainPage';
         } else {
             errorMessage.classList.remove('hidden');

@@ -1,9 +1,18 @@
 const questionare = document.querySelector('.questionare');
-const co_creationSite = document.querySelector('.robot-co-creation');
+const coCreationSite = document.querySelector('.robot-co-creation');
 
-const preQuestionnaire = document.querySelector('.pre-complete');
-const afterQuestionnaire = document.querySelector('.complete');
-const correctIcon = document.querySelector('.correct');
+const preQuestionnaireText = document.getElementById('pre-questionnaire-text');
+const questionnaireCompletedText = document.getElementById(
+    'questionnaire-complete-text',
+);
+const allCompletedText = document.getElementById('all-complete-text');
+
+const questionnaireCompleteIcon = document.getElementById(
+    'questionnaire-complete-icon',
+);
+const coCreationCompleteIcon = document.getElementById(
+    'co-creation-complete-icon',
+);
 
 const analyticsTab = document.getElementById('analytics');
 
@@ -16,7 +25,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const res = await (await fetch('/userData')).json();
 
     const { isAuthenticated, role, name, affiliationCode } = res.userData;
-    console.log(res.userData);
 
     if (isAuthenticated) {
         analyticsTab.addEventListener('click', () => {
@@ -39,19 +47,31 @@ document.addEventListener('DOMContentLoaded', async () => {
         analyticsTab.classList.remove('cursor-pointer');
         analyticsTab.classList.add('cursor-not-allowed');
     }
-});
 
-if (localStorage.getItem('surveyedData')) {
-    correctIcon.classList.remove('hidden');
-    preQuestionnaire.classList.add('hidden');
-    afterQuestionnaire.classList.remove('hidden');
-    co_creationSite.addEventListener('click', () => {
-        window.location.href = '/robotCoCreation';
-    });
-} else {
-    co_creationSite.classList.remove('cursor-pointer');
-    co_creationSite.classList.add('cursor-not-allowed');
-}
+    if (localStorage.getItem('surveyedData')) {
+        const surveyedData = JSON.parse(localStorage.getItem('surveyedData'));
+        surveyedData['affiliationCode'] = affiliationCode;
+        localStorage.setItem('surveyedData', JSON.stringify(surveyedData));
+        questionnaireCompleteIcon.classList.remove('hidden');
+
+        preQuestionnaireText.classList.add('hidden');
+        questionnaireCompletedText.classList.remove('hidden');
+        coCreationSite.addEventListener('click', () => {
+            window.location.href = '/robotCoCreation';
+        });
+    } else {
+        coCreationSite.classList.remove('cursor-pointer');
+        coCreationSite.classList.add('cursor-not-allowed');
+    }
+
+    if (localStorage.getItem('coCreationPassed')) {
+        coCreationCompleteIcon.classList.remove('hidden');
+
+        preQuestionnaireText.classList.add('hidden');
+        questionnaireCompletedText.add('hidden');
+        allCompletedText.remove('hidden');
+    }
+});
 
 questionare.addEventListener('click', () => {
     window.location.href = '/questionare';

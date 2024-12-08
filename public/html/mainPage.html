@@ -30,22 +30,34 @@
             <div class="justify-center items-center">
                 <div class="inline-flex flex-col items-center w-full">
                     <h1 class="text-4xl font-semibold text-center mb-8">
-                        <a href="/">ROBOT CO-CREATION</a>
+                        <a href="/login">ROBOT CO-CREATION</a>
                     </h1>
                     <div
                         class="inline-flex flex-col items-center max-w-xs w-full p-3 rounded-md bg-blue-200 mb-12"
                     >
                         <div
-                            class="pre-complete inline-flex flex-col items-center"
+                            class="inline-flex flex-col items-center"
+                            id="pre-questionnaire-text"
                         >
                             <h3>First complete the questionnaire so you</h3>
                             <h3>can proceed to the robot co-creation.</h3>
                         </div>
                         <div
-                            class="complete hidden inline-flex flex-col items-center"
+                            class="hidden inline-flex flex-col items-center"
+                            id="questionnaire-complete-text"
                         >
                             <h3>Questionnaire is completed!</h3>
                             <h3>Now you can start robot co-creation</h3>
+                        </div>
+                        <div
+                            class="hidden inline-flex flex-col items-center"
+                            id="all-complete-text"
+                        >
+                            <h3>
+                                Questionnaire and robot co-creation are
+                                complted!
+                            </h3>
+                            <h3>Thank you for participating!</h3>
                         </div>
                     </div>
                 </div>
@@ -57,7 +69,8 @@
                         <p class="text-center mt-4">questionnaire</p>
                         <img src="../images/questionnaire.svg" alt="" />
                         <img
-                            class="correct w-12 h-auto mx-auto hidden"
+                            class="w-12 h-auto mx-auto hidden"
+                            id="questionnaire-complete-icon"
                             src="../images/correct.svg"
                             alt=""
                         />
@@ -65,8 +78,14 @@
                     <div
                         class="robot-co-creation bg-gray-300 w-1/2 h-80 rounded-2xl mx-6 cursor-pointer hover:bg-gray-500 transition duration-300"
                     >
-                        <p class="text-center mt-4 mb-2">robot co-creation</p>
+                        <p class="text-center mt-4">robot co-creation</p>
                         <img src="../images/robot.svg" alt="" />
+                        <img
+                            class="w-12 h-auto mx-auto hidden"
+                            id="co-creation-complete-icon"
+                            src="../images/correct.svg"
+                            alt=""
+                        />
                     </div>
                     <div
                         id="analytics"
