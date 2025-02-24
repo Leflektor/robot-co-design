@@ -335,9 +335,11 @@ async function submitButtonHandler() {
         answers['surveyedData'].creativityBox = textarea.value;
 
         const response = await sendPostReq(answers);
-        console.log(response.status);
+        // console.log(response.status);
 
         if (response.status === 'success') {
+            // console.log(response.insertedId);
+            localStorage.setItem('answerID', response.insertedId);
             submitSection.classList.add('hidden');
             thankYouSection.classList.remove('hidden');
             prevButton.classList.add('hidden');

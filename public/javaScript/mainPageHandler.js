@@ -5,6 +5,7 @@ const preQuestionnaireText = document.getElementById('pre-questionnaire-text');
 const questionnaireCompletedText = document.getElementById(
     'questionnaire-complete-text',
 );
+
 const allCompletedText = document.getElementById('all-complete-text');
 
 const questionnaireCompleteIcon = document.getElementById(
@@ -20,6 +21,8 @@ const userHelloText = document.getElementById('user-hello');
 const affiliationCodeText = document.getElementById('affiliation-text');
 const affiliationCodeValue = document.getElementById('affiliation-code');
 const roleText = document.getElementById('role');
+
+const logOutButton = document.getElementById('log-out-btn');
 
 document.addEventListener('DOMContentLoaded', async () => {
     const res = await (await fetch('/userData')).json();
@@ -68,11 +71,32 @@ document.addEventListener('DOMContentLoaded', async () => {
         coCreationCompleteIcon.classList.remove('hidden');
 
         preQuestionnaireText.classList.add('hidden');
-        questionnaireCompletedText.add('hidden');
-        allCompletedText.remove('hidden');
+        questionnaireCompletedText.classList.add('hidden');
+        allCompletedText.classList.remove('hidden');
     }
 });
 
 questionare.addEventListener('click', () => {
     window.location.href = '/questionare';
+});
+
+logOutButton.addEventListener('click', async () => {
+    if (confirm('Are you sure you want to log out?') == true) {
+        const response = await fetch('/logout', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+        });
+
+        const res = await response.json();
+
+        if (res.status === 'success') {
+            localStorage.clear();
+            window.location.href = '/login';
+        }
+        if (res.status === 'fail') {
+            alert(res.message);
+        }
+    }
 });

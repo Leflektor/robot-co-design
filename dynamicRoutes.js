@@ -5,6 +5,7 @@ const {
     _sessionMiddleware,
     isCSVAuthorized,
     isAuthenticated,
+    isLoggedIn,
 } = require('./middleware');
 
 const register = require('./controllers/registerController');
@@ -15,6 +16,9 @@ const loginToCSV = require('./controllers/loginToCSVController');
 const login = require('./controllers/loginController');
 const checkAffiliationCode = require('./controllers/checkAffiliationCodeController');
 const userData = require('./controllers/userDataController');
+const generateImage = require('./controllers/generateRobotPictureController');
+const logout = require('./controllers/logoutController');
+const createUserSession = require('./controllers/createUserSessionController');
 
 const controlledRoutes = [
     { path: '/register', controller: register, method: 'post' },
@@ -24,7 +28,12 @@ const controlledRoutes = [
         method: 'get',
         auth: isCSVAuthorized,
     },
-    { path: '/sendToDB', controller: sendToDB, method: 'post' },
+    {
+        path: '/sendToDB',
+        controller: sendToDB,
+        method: 'post',
+        auth: isLoggedIn,
+    },
     { path: '/loginToCSV', controller: loginToCSV, method: 'post' },
     { path: '/verify', controller: verify, method: 'get' },
     { path: '/login', controller: login, method: 'post' },
@@ -33,13 +42,35 @@ const controlledRoutes = [
         controller: checkAffiliationCode,
         method: 'post',
     },
-    { path: '/userData', controller: userData, method: 'get' },
+    {
+        path: '/userData',
+        controller: userData,
+        method: 'get',
+        auth: isLoggedIn,
+    },
+    {
+        path: '/generateImage',
+        controller: generateImage,
+        method: 'post',
+        auth: isLoggedIn,
+    },
+    {
+        path: '/logout',
+        controller: logout,
+        method: 'post',
+        auth: isLoggedIn,
+    },
+    {
+        path: '/createUserSession',
+        controller: createUserSession,
+        method: 'post',
+    },
 ];
 
 controlledRoutes.forEach(route => {
     if (route.method === 'post') {
         if (route.auth) {
-            route.post(route.path, route.auth, route.controller);
+            router.post(route.path, route.auth, route.controller);
         } else {
             router.post(route.path, route.controller);
         }

@@ -7,7 +7,7 @@ const {
     _isAuthenticated,
 } = require('./middleware');
 const staticRoutes = require('./staticRoutes');
-const controlledRoutes = require('./dynamicRoutes');
+const dynamicRoutes = require('./dynamicRoutes');
 
 dotenv.config({ path: './config.env' });
 
@@ -19,7 +19,7 @@ app.use(express.static(`${__dirname}/public`));
 app.use(sessionMiddleware);
 
 app.use(staticRoutes);
-app.use(controlledRoutes);
+app.use(dynamicRoutes);
 
 app.listen(port, () => {
     console.log(`App running on port ${port}...`);

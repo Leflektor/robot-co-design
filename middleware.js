@@ -15,10 +15,22 @@ function isCSVAuthorized(req, res, next) {
 }
 
 function isAuthenticated(req, res, next) {
-    if (req.session.user && req.session.user.isAuthenticated) {
+    if (req.session?.user?.isAuthenticated) {
         return next();
     }
     res.redirect('/login');
 }
 
-module.exports = { sessionMiddleware, isCSVAuthorized, isAuthenticated };
+function isLoggedIn(req, res, next) {
+    if (req.session?.user?.loggedIn) {
+        return next();
+    }
+    res.redirect('/login');
+}
+
+module.exports = {
+    sessionMiddleware,
+    isCSVAuthorized,
+    isAuthenticated,
+    isLoggedIn,
+};

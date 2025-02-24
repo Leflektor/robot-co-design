@@ -1,0 +1,82 @@
+{
+    "Q0": {
+        "question": "Height of the Robot",
+        "answers": {
+            "1": "Short (Around 1 metre)",
+            "2": "Medium (Around 1.5 metres)",
+            "3": "Tall (Around 1.8 metres)"
+        }
+    },
+    "Q1": {
+        "question": "Mobility",
+        "answers": {
+            "1": "Wheeled (Easier movement, more stable, cheaper)",
+            "2": "Legged (More human-like, can navigate stairs, much more expensive)",
+            "3": "Stationary (Fixed position, interacts from one location, cheapest option)"
+        }
+    },
+    "Q2": {
+        "question": "Appearance",
+        "answers": {
+            "1": "Human-like (Facial features, limbs, humanoid structure)",
+            "2": "Animal-like (Friendly pet-like appearance)",
+            "3": "Machine-like (Functional design, minimalistic)"
+        }
+    },
+    "Q3": {
+        "question": "Color Scheme",
+        "answers": {
+            "1": "Neutral (White, grey, beige)",
+            "2": "Warm (Soft pastels, light blues)",
+            "3": "Vibrant (Bright colours, distinct patterns)"
+        }
+    },
+    "Q4": {
+        "question": "Size",
+        "answers": {
+            "1": "Compact (Small and portable)",
+            "2": "Moderate (Easy to handle, fits in small spaces)",
+            "3": "Large (Prominent, noticeable presence)"
+        }
+    },
+    "Q5": {
+        "question": "Facial Features",
+        "answers": {
+            "1": "Detailed (Eyes, mouth, with expressions)",
+            "2": "Simplified (Basic shapes, minimal expressions)",
+            "3": "No Face (Screen display or other indicators)"
+        }
+    },
+    "Q6": {
+        "question": "Arms and Hands",
+        "answers": {
+            "1": "No Arms (Minimalistic design)",
+            "2": "Simple Arms (Basic gestures, no hands)",
+            "3": "Functional Arms and Hands (Capable of grasping and holding objects)"
+        }
+    },
+    "Q7": {
+        "question": "Manipulative Functionality",
+        "answers": {
+            "1": "No Manipulation (Cannot handle objects)",
+            "2": "Basic Manipulation (Can hold light objects, assist with simple tasks)",
+            "3": "Advanced Manipulation (Can handle a variety of objects with precision)"
+        }
+    },
+    "Q8": {
+        "question": "Physical Support",
+        "answers": {
+            "1": "No Support (Cannot assist physically)",
+            "2": "Some Support (Provides balance, minor physical assistance)",
+            "3": "Full Support (Acts as a push trolley, fully supports mobility)"
+        }
+    },
+    "Q9": {
+        "question": "User Interface",
+        "answers": {
+            "1": "Push Buttons (Simple interface like a classic TV set)",
+            "2": "Tablet-like (Touchscreen, menu-driven interface)",
+            "3": "Natural (Voice commands, gesture recognition)"
+        }
+    }
+}

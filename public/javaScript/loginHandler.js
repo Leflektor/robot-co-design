@@ -53,9 +53,17 @@ showIcons.forEach(el => {
     });
 });
 
-enterButton.addEventListener('click', () => {
-    window.location.href = '/mainPage';
+enterButton.addEventListener('click', async e => {
+    e.preventDefault();
+    const response = await fetch('/createUserSession', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+        },
+    });
+
     localStorage.clear();
+    window.location.href = '/mainPage';
 });
 
 registerButton.addEventListener('click', () => {

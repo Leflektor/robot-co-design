@@ -5,20 +5,26 @@ const {
     _sessionMiddleware,
     isCSVAuthorized,
     isAuthenticated,
+    isLoggedIn,
 } = require('./middleware');
 
 const staticRoutes = [
     { path: '/', file: 'index.html' },
-    { path: '/mainPage', file: 'mainPage.html' },
+    { path: '/mainPage', file: 'mainPage.html', auth: isLoggedIn },
     { path: '/login', file: 'login.html' },
     { path: '/register', file: 'register.html' },
-    { path: '/questionare', file: 'questionare.html' },
-    { path: '/robotCoCreation', file: 'robotCoCreation.html' },
+    { path: '/questionare', file: 'questionare.html', auth: isLoggedIn },
+    {
+        path: '/robotCoCreation',
+        file: 'robotCoCreation.html',
+        auth: isLoggedIn,
+    },
     { path: '/unraq2', file: 'unraq2.html' },
     { path: '/loginToCSV', file: 'loginToCSV.html' },
     { path: '/verified', file: 'verified.html' },
     { path: '/generateCSV', file: 'generateCSV.html', auth: isCSVAuthorized },
     { path: '/analytics', file: 'analytics.html', auth: isAuthenticated },
+    { path: '/generateImage', file: 'robotImage.html', auth: isLoggedIn },
 ];
 
 staticRoutes.forEach(route => {

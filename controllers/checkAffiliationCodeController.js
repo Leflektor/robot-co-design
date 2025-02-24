@@ -18,6 +18,7 @@ async function checkAffiliationCode(req, res) {
                 role: 'guest',
                 name: 'guest',
                 affiliationCode: affiliationCode,
+                loggedIn: true,
             };
 
             res.status(200).send({

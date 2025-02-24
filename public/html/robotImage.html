@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="styles.css" />
+        <script type="module" src="../javaScript/robotImageHandler.js"></script>
+        <title>ROBOT CO-CREATION</title>
+    </head>
+    <body
+        class="bg-blue-300 flex py-6 justify-center items-center min-h-screen overflow-x-hidden"
+    >
+        <div class="app bg-white p-8 m-auto rounded-lg shadow-lg">
+            <div class="mb-4 justify-center items-center">
+                <h1 class="text-4xl font-semibold text-center">
+                    <a href="/">ROBOT CO-CREATION</a>
+                </h1>
+                <div class="flex flex-col items-center my-8">
+                    <button class="btn-inactive" id="btn1">
+                        click to generate robots image
+                    </button>
+                    <img
+                        id="robotImage"
+                        alt="Generated Robot"
+                        style="
+                            visibility: hidden;
+                            width: 512px;
+                            height: 512px;
+                            object-fit: cover;
+                        "
+                    />
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

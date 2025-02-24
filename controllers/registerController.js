@@ -2,6 +2,7 @@ const crypto = require('crypto');
 const { v4: uuidv4 } = require('uuid');
 const sendConfirmationEmail = require('../utils/mailer');
 const pool = require('../utils/db');
+const bcrypt = require('bcryptjs');
 
 function generateConfirmationToken() {
     return uuidv4(); // example token: 'd21f1ab9-e2b0-4c3a-90ed-1a2d9a90c256'
@@ -22,6 +23,8 @@ async function register(req, res) {
         description,
     } = req.body;
 
+    hashedPassword = await bcrypt.hash(password, 12);
+
     const confirmationToken = generateConfirmationToken();
     const accessCode = generateAccessCode();
 
@@ -38,9 +41,9 @@ async function register(req, res) {
                 institution,
                 email,
                 login,
-                password,
+                hashedPassword,
                 description,
-                'user',
+                'local admin',
                 confirmationToken,
                 false,
                 accessCode,
