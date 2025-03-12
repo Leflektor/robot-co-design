@@ -2,8 +2,11 @@ const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
     host: 'localhost',
-    port: 1025, // MailDev port
+    port: 25, // Postfix port
     secure: false, // Bez SSL/TLS dla lokalnego serwera
+    tls: {
+	rejectUnauthorized: false,
+    },
 });
 
 // Function for sending email with confirmation link
@@ -20,7 +23,7 @@ const sendConfirmationEmail = (recipient, confirmationLink) => {
     return transporter
         .sendMail(mailOptions)
         .then(info =>
-            console.log('Message intercepted by MailDev:', info.response),
+            console.log('Message sent by nodeMailer:', info.response),
         )
         .catch(error => console.error('Error sending email:', error));
 };
