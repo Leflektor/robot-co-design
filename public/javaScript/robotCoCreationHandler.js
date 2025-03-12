@@ -16,9 +16,6 @@ const sectionDescDiv = document.getElementById('sec-div');
 
 const textarea = document.querySelector('textarea');
 
-const thankYouSection = document.getElementById('thank-you');
-const goBackButton = document.getElementById('go-back');
-
 let sId = 0; //sectionID
 let qId = 0; // questionID
 
@@ -335,22 +332,13 @@ async function submitButtonHandler() {
         answers['surveyedData'].creativityBox = textarea.value;
 
         const response = await sendPostReq(answers);
-        // console.log(response.status);
 
         if (response.status === 'success') {
-            // console.log(response.insertedId);
-            localStorage.setItem('answerID', response.insertedId);
-            submitSection.classList.add('hidden');
-            thankYouSection.classList.remove('hidden');
-            prevButton.classList.add('hidden');
-            nextButton.classList.add('hidden');
+            localStorage.setItem('answerId', response.insertedId);
+            localStorage.setItem('coCreationPassed', true);
+            window.location.href = '/mainPage';
         } else if (response.status === 'error') {
-            alert('Error occured, try submitiing again!'); // Informacja dla użytkownika o błędzie
+            alert('Error occured, try submitiing again later!'); // Informacja dla użytkownika o błędzie
         }
     }
 }
-
-goBackButton.addEventListener('click', () => {
-    localStorage.setItem('coCreationPassed', true);
-    window.location.href = '/mainPage';
-});

@@ -3,48 +3,50 @@
 @tailwind utilities;
 
 .btn-inactive {
-    @apply bg-gray-300 rounded p-2 hover:bg-gray-500 transition duration-300;
+    @apply rounded bg-gray-300 p-2 transition duration-300 hover:bg-gray-500;
 }
 
 .btn-active {
-    @apply bg-gray-600 border rounded p-2;
+    @apply rounded border bg-gray-600 p-2;
 }
 
 .text-input {
-    @apply border border-black rounded p-2 w-full;
+    @apply w-full rounded border border-black p-2;
 }
 
 th,
 tr,
 td {
-    @apply border border-black align-middle text-center;
+    @apply border border-black text-center align-middle;
 }
 
 .table-btn {
-    @apply rounded-md border border-black bg-gray-300 w-14 h-10 inline-flex justify-center items-center hover:bg-gray-500 transition duration-300;
+    @apply inline-flex h-10 w-14 items-center justify-center rounded-md border border-black bg-gray-300 transition duration-300 hover:bg-gray-500;
 }
 
 .table-btn-active {
-    @apply rounded-md border border-black bg-gray-500 w-14 h-10 inline-flex justify-center items-center;
+    @apply inline-flex h-10 w-14 items-center justify-center rounded-md border border-black bg-gray-500;
 }
 
 .answer-image {
-    @apply bg-gray-300 w-1/4 rounded-2xl mx-4 cursor-pointer flex flex-col justify-between items-center hover:bg-gray-500 transition duration-300;
+    @apply flex cursor-pointer flex-col items-center justify-between rounded-2xl bg-gray-300 transition duration-300 hover:bg-gray-500;
+    width: 30%;
 }
 .answer-image-chosen {
-    @apply bg-gray-500 w-1/4 rounded-2xl mx-4 cursor-pointer flex flex-col justify-between items-center;
+    @apply flex cursor-pointer flex-col items-center justify-between rounded-2xl bg-gray-500;
+    width: 30%;
 }
 
 .answer-text {
-    @apply w-4/5 bg-gray-300 rounded p-3 cursor-pointer hover:bg-gray-500 transition duration-300;
+    @apply my-3 w-4/5 cursor-pointer rounded bg-gray-300 p-3 transition duration-300 hover:bg-gray-500;
 }
 
 .answer-text-chosen {
-    @apply w-4/5 bg-gray-500 rounded p-3 cursor-pointer;
+    @apply my-2 w-4/5 cursor-pointer rounded bg-gray-500 p-3;
 }
 
 .co-creation-comment {
-    @apply bg-gray-300 p-3 w-3/4 mt-5 rounded-lg resize-none hover:bg-gray-200 transition duration-200 focus:bg-gray-200  text-center;
+    @apply mt-2 w-3/4 resize-none rounded-lg bg-gray-300 p-3 text-center transition duration-200 hover:bg-gray-200 focus:bg-gray-200 sm:mt-5;
 }
 
 textarea::-webkit-scrollbar {

@@ -8,7 +8,7 @@ const sessionMiddleware = session({
 });
 
 function isCSVAuthorized(req, res, next) {
-    if (req.session.isCSVAuthorized) {
+    if (req.session?.isCSVAuthorized) {
         return next();
     }
     res.redirect('/loginToCSV');
@@ -21,16 +21,32 @@ function isAuthenticated(req, res, next) {
     res.redirect('/login');
 }
 
-function isLoggedIn(req, res, next) {
+function isNotLoggedIn(req, res, next) {
     if (req.session?.user?.loggedIn) {
         return next();
     }
     res.redirect('/login');
 }
 
+function isLoggedIn(req, res, next) {
+    if (!req.session?.user?.loggedIn) {
+        return next();
+    }
+    res.redirect('/mainPage');
+}
+
+function hasSubmittedCoCreation(req, res, next) {
+    if (req.session?.user?.recordId) {
+        return next();
+    }
+    res.redirect('/mainPage');
+}
+
 module.exports = {
     sessionMiddleware,
     isCSVAuthorized,
     isAuthenticated,
+    isNotLoggedIn,
     isLoggedIn,
+    hasSubmittedCoCreation,
 };

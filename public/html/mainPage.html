@@ -14,34 +14,37 @@
     </head>
 
     <body
-        class="bg-blue-300 flex py-6 justify-center items-center min-h-screen overflow-x-hidden"
+        class="flex min-h-screen items-center justify-center overflow-x-hidden bg-blue-300 px-2 py-6"
     >
         <div
-            class="user-info absolute top-4 right-4 bg-white px-4 py-2 rounded-lg shadow-md text-center"
+            class="app relative w-full max-w-4xl rounded-2xl bg-white p-3 shadow-lg lg:static lg:p-8"
         >
-            <p id="user-hello">Hello guest!</p>
-            <p id="affiliation-text">Affiliation Code:</p>
-            <p id="affiliation-code">You didn't use a code</p>
-            <p id="role">Your role is: guest</p>
-            <div class="mt-4 mb-2">
-                <button
-                    id="log-out-btn"
-                    class="bg-red-600 rounded p-2 hover:bg-red-800 transition duration-300"
+            <div class="items-center justify-center">
+                <div
+                    class="user-info md: absolute -right-12 -top-10 scale-50 transform rounded-lg bg-white px-4 py-2 text-center shadow-md sm:-right-5 sm:-top-2 sm:scale-75 md:right-2 md:top-2 md:scale-100 lg:right-4 lg:top-4"
                 >
-                    Log out
-                </button>
-            </div>
-        </div>
-        <div
-            class="app bg-white p-8 pb-12 max-w-4xl w-full rounded-2xl shadow-lg"
-        >
-            <div class="justify-center items-center">
-                <div class="inline-flex flex-col items-center w-full">
-                    <h1 class="text-4xl font-semibold text-center mb-8">
-                        <a href="/login">ROBOT CO-CREATION</a>
+                    <p id="user-hello">Hello guest!</p>
+                    <p id="affiliation-text">Affiliation Code:</p>
+                    <p id="affiliation-code">You didn't use a code</p>
+                    <p id="role">Your role is: guest</p>
+                    <div class="mb-2 mt-4">
+                        <button
+                            id="log-out-btn"
+                            class="transform rounded bg-red-600 p-2 transition duration-300 hover:bg-red-800"
+                        >
+                            Log out
+                        </button>
+                    </div>
+                </div>
+
+                <div class="inline-flex w-full flex-col items-center">
+                    <h1
+                        class="mb-6 text-center text-3xl font-semibold md:mb-8 lg:text-4xl"
+                    >
+                        <p>ROBOT CO-CREATION</p>
                     </h1>
                     <div
-                        class="inline-flex flex-col items-center max-w-xs w-full p-3 rounded-md bg-blue-200 mb-12"
+                        class="mb-6 inline-flex w-full max-w-xs scale-90 transform flex-col items-center rounded-md bg-blue-200 p-3 md:mb-12 lg:scale-100"
                     >
                         <div
                             class="inline-flex flex-col items-center"
@@ -51,55 +54,72 @@
                             <h3>can proceed to the robot co-creation.</h3>
                         </div>
                         <div
-                            class="hidden inline-flex flex-col items-center"
+                            class="inline-flex hidden flex-col items-center"
                             id="questionnaire-complete-text"
                         >
                             <h3>Questionnaire is completed!</h3>
-                            <h3>Now you can start robot co-creation</h3>
+                            <h3>Now you can start robot co-creation.</h3>
                         </div>
                         <div
-                            class="hidden inline-flex flex-col items-center"
-                            id="all-complete-text"
+                            class="inline-flex hidden flex-col items-center"
+                            id="co-creation-complete-text"
                         >
                             <h3>Robot co-creation is also completed!</h3>
-                            <h3>Thank you for participating!</h3>
+                            <h3>Now you can generate an image of the</h3>
+                            <h3>robot based on your co-creation answers.</h3>
+                        </div>
+                        <div
+                            class="inline-flex hidden flex-col items-center"
+                            id="all-complete-text"
+                        >
+                            <h3>We have received your opinion on</h3>
+                            <h3>the robot's image.</h3>
+                            <h3>Thank you for your participation!</h3>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex">
+                <div class="flex w-full justify-between">
                     <div
-                        class="questionare bg-gray-300 w-1/2 h-80 rounded-2xl mx-6 cursor-pointer hover:bg-gray-500 transition duration-300"
+                        class="questionare cursor-pointer rounded-2xl bg-gray-300 transition duration-300 hover:bg-gray-500"
+                        style="width: 30%"
                     >
-                        <p class="text-center mt-4">questionnaire</p>
-                        <img src="../images/questionnaire.svg" alt="" />
+                        <p class="mt-4 text-center">questionnaire</p>
                         <img
-                            class="w-12 h-auto mx-auto hidden"
+                            class=""
+                            src="../images/questionnaire.svg"
+                            alt=""
+                        />
+                        <img
+                            class="mx-auto mb-2 hidden h-auto w-12"
                             id="questionnaire-complete-icon"
                             src="../images/correct.svg"
                             alt=""
                         />
                     </div>
                     <div
-                        class="robot-co-creation bg-gray-300 w-1/2 h-80 rounded-2xl mx-6 cursor-pointer hover:bg-gray-500 transition duration-300"
+                        class="robot-co-creation cursor-pointer rounded-2xl bg-gray-300 transition duration-300 hover:bg-gray-500"
+                        style="width: 30%"
                     >
-                        <p class="text-center mt-4">robot co-creation</p>
-                        <img src="../images/robot.svg" alt="" />
+                        <p class="mt-4 text-center">robot co-creation</p>
+                        <img class="p-4" src="../images/robot_arm.png" alt="" />
                         <img
-                            class="w-12 h-auto mx-auto hidden"
+                            class="mx-auto mb-2 hidden h-auto w-12"
                             id="co-creation-complete-icon"
                             src="../images/correct.svg"
                             alt=""
                         />
                     </div>
                     <div
-                        id="analytics"
-                        class="bg-gray-300 w-1/2 h-80 rounded-2xl mx-6 cursor-pointer hover:bg-gray-500 transition duration-300"
+                        class="robot-image-generation cursor-pointer rounded-2xl bg-gray-300 transition duration-300 hover:bg-gray-500"
+                        style="width: 30%"
                     >
-                        <p class="text-center mt-4 mb-2">analytics</p>
+                        <p class="mt-4 text-center">robot image generation</p>
+                        <img class="p-2" src="../images/robot.svg" alt="" />
                         <img
-                            class="p-4"
-                            src="../images/chart_icon.svg"
+                            class="mx-auto mb-2 hidden h-auto w-12"
+                            id="all-complete-icon"
+                            src="../images/correct.svg"
                             alt=""
                         />
                     </div>

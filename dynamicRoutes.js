@@ -5,23 +5,19 @@ const {
     _sessionMiddleware,
     isCSVAuthorized,
     isAuthenticated,
+    isNotLoggedIn,
     isLoggedIn,
+    hasSubmittedCoCreation,
 } = require('./middleware');
 
-const register = require('./controllers/registerController');
+const userController = require('./controllers/userController');
+
 const downloadToCSV = require('./controllers/downloadToCSVController');
-const verify = require('./controllers/verifyController');
-const sendToDB = require('./controllers/sendToDBController');
-const loginToCSV = require('./controllers/loginToCSVController');
-const login = require('./controllers/loginController');
-const checkAffiliationCode = require('./controllers/checkAffiliationCodeController');
-const userData = require('./controllers/userDataController');
 const generateImage = require('./controllers/generateRobotPictureController');
-const logout = require('./controllers/logoutController');
-const createUserSession = require('./controllers/createUserSessionController');
+const saveOpinionOnImage = require('./controllers/saveOpinionOnImageController');
 
 const controlledRoutes = [
-    { path: '/register', controller: register, method: 'post' },
+    { path: '/register', controller: userController.register, method: 'post' },
     {
         path: '/downloadToCSV',
         controller: downloadToCSV,
@@ -30,40 +26,50 @@ const controlledRoutes = [
     },
     {
         path: '/sendToDB',
-        controller: sendToDB,
+        controller: userController.sendToDB,
         method: 'post',
-        auth: isLoggedIn,
+        auth: isNotLoggedIn,
     },
-    { path: '/loginToCSV', controller: loginToCSV, method: 'post' },
-    { path: '/verify', controller: verify, method: 'get' },
-    { path: '/login', controller: login, method: 'post' },
+    {
+        path: '/loginToCSV',
+        controller: userController.loginToCSV,
+        method: 'post',
+    },
+    { path: '/verify', controller: userController.verify, method: 'get' },
+    { path: '/login', controller: userController.login, method: 'post' },
     {
         path: '/checkAffiliationCode',
-        controller: checkAffiliationCode,
+        controller: userController.checkAffiliationCode,
         method: 'post',
     },
     {
         path: '/userData',
-        controller: userData,
+        controller: userController.userData,
         method: 'get',
-        auth: isLoggedIn,
+        auth: isNotLoggedIn,
     },
     {
         path: '/generateImage',
         controller: generateImage,
         method: 'post',
-        auth: isLoggedIn,
+        auth: hasSubmittedCoCreation,
     },
     {
         path: '/logout',
-        controller: logout,
+        controller: userController.logout,
         method: 'post',
-        auth: isLoggedIn,
+        auth: isNotLoggedIn,
     },
     {
         path: '/createUserSession',
-        controller: createUserSession,
+        controller: userController.createUserSession,
         method: 'post',
+    },
+    {
+        path: '/saveOpinionOnImage',
+        controller: saveOpinionOnImage,
+        method: 'post',
+        auth: hasSubmittedCoCreation,
     },
 ];
 

@@ -1,11 +1,14 @@
 const questionare = document.querySelector('.questionare');
 const coCreationSite = document.querySelector('.robot-co-creation');
+const imageGenerationTab = document.querySelector('.robot-image-generation');
 
 const preQuestionnaireText = document.getElementById('pre-questionnaire-text');
 const questionnaireCompletedText = document.getElementById(
     'questionnaire-complete-text',
 );
-
+const coCreationCompletedText = document.getElementById(
+    'co-creation-complete-text',
+);
 const allCompletedText = document.getElementById('all-complete-text');
 
 const questionnaireCompleteIcon = document.getElementById(
@@ -14,6 +17,7 @@ const questionnaireCompleteIcon = document.getElementById(
 const coCreationCompleteIcon = document.getElementById(
     'co-creation-complete-icon',
 );
+const allCompleteIcon = document.getElementById('all-complete-icon');
 
 const analyticsTab = document.getElementById('analytics');
 
@@ -30,9 +34,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const { isAuthenticated, role, name, affiliationCode } = res.userData;
 
     if (isAuthenticated) {
-        analyticsTab.addEventListener('click', () => {
-            window.location.href = '/analytics';
-        });
         userHelloText.textContent = `Hello ${name}`;
         affiliationCodeText.textContent = `Your affiliation code:`;
         affiliationCodeValue.textContent = `${affiliationCode}`;
@@ -42,13 +43,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         affiliationCodeText.textContent = `Affiliation code you used:`;
         affiliationCodeValue.textContent = `${affiliationCode}`;
         roleText.textContent = `Your role is ${role}`;
-        analyticsTab.classList.remove('cursor-pointer');
-        analyticsTab.classList.add('cursor-not-allowed');
     } else {
         userHelloText.textContent = 'Hello non-affiliated guest';
         roleText.textContent = `Your role is ${role}`;
-        analyticsTab.classList.remove('cursor-pointer');
-        analyticsTab.classList.add('cursor-not-allowed');
     }
 
     if (localStorage.getItem('surveyedData')) {
@@ -72,7 +69,23 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         preQuestionnaireText.classList.add('hidden');
         questionnaireCompletedText.classList.add('hidden');
+        coCreationCompletedText.classList.remove('hidden');
+        imageGenerationTab.addEventListener('click', () => {
+            window.location.href = '/generateRobotImage';
+        });
+        imageGenerationTab.classList.add('cursor-pointer');
+        imageGenerationTab.classList.remove('cursor-not-allowed');
+    } else {
+        imageGenerationTab.classList.remove('cursor-pointer');
+        imageGenerationTab.classList.add('cursor-not-allowed');
+    }
+
+    if (localStorage.getItem('allCompleted')) {
         allCompletedText.classList.remove('hidden');
+        allCompleteIcon.classList.remove('hidden');
+        coCreationCompletedText.classList.add('hidden');
+        questionnaireCompletedText.classList.add('hidden');
+        preQuestionnaireText.classList.add('hidden');
     }
 });
 

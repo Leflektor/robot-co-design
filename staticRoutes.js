@@ -1,30 +1,37 @@
 const express = require('express');
 const path = require('path');
-const router = express.Router();
 const {
     _sessionMiddleware,
     isCSVAuthorized,
     isAuthenticated,
+    isNotLoggedIn,
     isLoggedIn,
+    hasSubmittedCoCreation,
 } = require('./middleware');
+const router = express.Router();
 
 const staticRoutes = [
-    { path: '/', file: 'index.html' },
-    { path: '/mainPage', file: 'mainPage.html', auth: isLoggedIn },
-    { path: '/login', file: 'login.html' },
-    { path: '/register', file: 'register.html' },
-    { path: '/questionare', file: 'questionare.html', auth: isLoggedIn },
+    { path: '/', file: 'index.html', auth: isLoggedIn },
+    { path: '/mainPage', file: 'mainPage.html', auth: isNotLoggedIn },
+    { path: '/login', file: 'login.html', auth: isLoggedIn },
+    { path: '/register', file: 'register.html', auth: isLoggedIn },
+    { path: '/questionare', file: 'questionare.html', auth: isNotLoggedIn },
     {
         path: '/robotCoCreation',
         file: 'robotCoCreation.html',
-        auth: isLoggedIn,
+        auth: isNotLoggedIn,
     },
     { path: '/unraq2', file: 'unraq2.html' },
     { path: '/loginToCSV', file: 'loginToCSV.html' },
     { path: '/verified', file: 'verified.html' },
     { path: '/generateCSV', file: 'generateCSV.html', auth: isCSVAuthorized },
     { path: '/analytics', file: 'analytics.html', auth: isAuthenticated },
-    { path: '/generateImage', file: 'robotImage.html', auth: isLoggedIn },
+    {
+        path: '/generateRobotImage',
+        file: 'generateRobotImage.html',
+        auth: isNotLoggedIn,
+    },
+    { path: '/test', file: 'test.html' },
 ];
 
 staticRoutes.forEach(route => {

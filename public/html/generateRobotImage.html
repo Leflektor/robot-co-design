@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="styles.css" />
+        <script
+            type="module"
+            src="../javaScript/generateRobotImageHandler.js"
+        ></script>
+        <title>ROBOT CO-CREATION</title>
+        <style>
+            #slider {
+                -webkit-appearance: none;
+                width: 100%;
+                height: 10px;
+                border-radius: 10px;
+                background: #d3d3d3;
+                outline: none;
+                opacity: 0.7;
+                -webkit-transition: 0.2s;
+                transition: opacity 0.2s;
+            }
+
+            #slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                background: #04aa6d;
+                cursor: pointer;
+            }
+
+            #slider::-moz-range-thumb {
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                background: #04aa6d;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body
+        class="flex min-h-screen items-center justify-center overflow-x-hidden bg-blue-300 px-2 py-6"
+    >
+        <div
+            class="app w-full rounded-lg bg-white p-8 shadow-lg sm:w-2/3 xl:w-1/2"
+        >
+            <div class="items-center justify-center">
+                <h1 class="text-center text-4xl font-semibold">
+                    <a href="/">ROBOT CO-CREATION</a>
+                </h1>
+                <div class="mt-8 flex flex-col items-center">
+                    <div
+                        class="mb-5 inline-flex w-full max-w-sm transform flex-col items-center rounded-md bg-blue-200 p-3"
+                    >
+                        <div
+                            class="inline-flex flex-col items-center text-center"
+                        >
+                            <h3>
+                                The robot image generation feature is
+                                experimental and may not accurately reflect your
+                                responses. The generated image is for
+                                illustrative purposes only, and discrepancies
+                                between your input and the output are expected.
+                                Please do not be concerned if the result does
+                                not fully align with your answers.
+                            </h3>
+                        </div>
+                    </div>
+
+                    <button class="btn-inactive" id="generate-button">
+                        click to generate robot's image
+                    </button>
+
+                    <div
+                        id="image-placeholder"
+                        class="m-8 flex w-full justify-center"
+                    >
+                        <div
+                            style="aspect-ratio: 1 / 1"
+                            class="flex w-full max-w-lg items-center justify-center bg-gray-200 text-center"
+                        >
+                            <h1 id="placeholder-text" class="px-4">
+                                The image of your robot will be displayed here.
+                            </h1>
+                            <div
+                                id="placeholder-spinner"
+                                class="inline-flex hidden"
+                            >
+                                <svg
+                                    class="mr-3 h-5 w-5 animate-spin text-black"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <circle
+                                        class="opacity-25"
+                                        cx="12"
+                                        cy="12"
+                                        r="10"
+                                        stroke="currentColor"
+                                        stroke-width="4"
+                                    ></circle>
+                                    <path
+                                        class="opacity-75"
+                                        fill="currentColor"
+                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                    ></path>
+                                </svg>
+                                <h3>Processing...</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <img
+                        id="robot-image"
+                        alt="Generated Robot"
+                        class="mt-8 hidden w-full"
+                    />
+
+                    <div
+                        id="opinion-section"
+                        class="flex hidden flex-col items-center"
+                    >
+                        <div
+                            class="mb-3 mt-8 inline-flex w-full max-w-2xl transform flex-col items-center rounded-md bg-blue-200 p-3"
+                        >
+                            <div
+                                class="inline-flex flex-col items-center text-center"
+                            >
+                                <h3>
+                                    Image was generated by dall-e artificial
+                                    intelligence model from openai based on the
+                                    prompt generated with your answers. The
+                                    prompt:
+                                </h3>
+                                <h3 id="prompt"></h3>
+                            </div>
+                        </div>
+
+                        <div class="my-5 w-2/3">
+                            <label
+                                for="match-slider"
+                                class="mb-2 block text-center text-lg font-semibold"
+                            >
+                                How well does the generated image match your
+                                expectations? (1 = Not at all, 5 = Perfect
+                                match)
+                            </label>
+                            <input
+                                id="slider"
+                                type="range"
+                                min="1"
+                                max="5"
+                                value="3"
+                                step="1"
+                            />
+                            <p class="mt-2 text-center">
+                                Selected value: <span id="slider-value">3</span>
+                            </p>
+                        </div>
+
+                        <div
+                            class="my-5 inline-flex w-3/4 flex-col items-center"
+                        >
+                            <textarea
+                                id="aligning-aspects"
+                                class="h-30 max-h-96 w-full resize-none rounded-lg border bg-gray-300 p-3 transition duration-200 hover:bg-gray-200 focus:bg-gray-200"
+                                placeholder="What aspects of the generated image align well with your expectations?"
+                            ></textarea>
+                        </div>
+
+                        <div
+                            class="my-5 inline-flex w-3/4 flex-col items-center"
+                        >
+                            <textarea
+                                id="missing-aspects"
+                                class="h-30 max-h-96 w-full resize-none rounded-lg border bg-gray-300 p-3 transition duration-200 hover:bg-gray-200 focus:bg-gray-200"
+                                placeholder="What aspects do not match your expectations or were missing?"
+                            ></textarea>
+                        </div>
+
+                        <button
+                            id="submit-btn"
+                            class="btn-inactive my-3 md:my-6"
+                        >
+                            submit your opinion
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
