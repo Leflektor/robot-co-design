@@ -41,7 +41,7 @@ function sectionsHandler(e) {
 
     if (button) {
         const sectionName = button.closest('.section').id;
-        surveyedData[sectionName] = button.textContent.toLowerCase().trim();
+        surveyedData[sectionName] = button.value.toLowerCase().trim();
 
         const sectionButtons = button
             .closest('.section')

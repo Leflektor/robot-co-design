@@ -1,4 +1,4 @@
-const questionare = document.querySelector('.questionare');
+const questionnaire = document.querySelector('.questionnaire');
 const coCreationSite = document.querySelector('.robot-co-creation');
 const imageGenerationTab = document.querySelector('.robot-image-generation');
 
@@ -89,12 +89,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-questionare.addEventListener('click', () => {
-    window.location.href = '/questionare';
+questionnaire.addEventListener('click', () => {
+    window.location.href = '/questionnaire';
 });
 
 logOutButton.addEventListener('click', async () => {
-    if (confirm('Are you sure you want to log out?') == true) {
+    if (
+        confirm(
+            'Are you sure you want to log out? \n It will erease your progress.',
+        ) == true
+    ) {
         const response = await fetch('/logout', {
             method: 'POST',
             headers: {

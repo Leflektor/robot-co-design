@@ -1,6 +1,7 @@
 const axios = require('axios');
 const pool = require('../utils/db');
 const fs = require('fs');
+const path = require('path');
 
 const rawData = fs.readFileSync('questions.json', 'utf8');
 
@@ -9,7 +10,16 @@ const questionsData = JSON.parse(rawData);
 async function saveImage(imageId, imageURL) {
     try {
         const fileName = `robot_${imageId}.png`;
-        const filePath = `${__dirname.replace('controllers', 'generated_images')}\\${fileName}`;
+        const filePath = path.join(
+            __dirname,
+            '..',
+            'public',
+            'generated_images',
+            fileName,
+        );
+
+        console.log(fileName);
+        console.log(filePath);
 
         const response = await axios({
             url: imageURL,
@@ -17,21 +27,27 @@ async function saveImage(imageId, imageURL) {
             responseType: 'stream',
         });
 
-        const writer = fs.createWriteStream(filePath);
-        response.data.pipe(writer);
+        console.log('Axios responded succesfully with stream object');
 
-        writer.on('finish', async () => {
-            console.log('Image saved at:', filePath); //DELETE LATER
+        // Promise to wait for stream to finish
+        await new Promise((resolve, reject) => {
+            const writer = fs.createWriteStream(filePath);
+            response.data.pipe(writer);
 
-            const query = `INSERT INTO images_and_opinions (id, file_name) VALUES (?, ?)`;
-            await pool.query(query, [imageId, fileName]);
+            writer.on('finish', resolve);
+            writer.on('error', reject);
         });
 
-        writer.on('error', err => {
-            console.error('Error saving image:', err);
-        });
+        console.log('Image saved at:', filePath); //DELETE LATER
+
+        const query = `INSERT INTO images_and_opinions (id, file_name) VALUES (?, ?)`;
+        await pool.query(query, [imageId, fileName]);
+
+        const filePathForLater = `/generated_images/${fileName}`;
+        return filePathForLater;
     } catch (err) {
-        console.error('Error downloading image:', error);
+        console.error('Error downloading image:', err);
+        throw err;
     }
 }
 
@@ -51,12 +67,12 @@ async function generateRobotPicture(req, res) {
         });
     }
 
-    // In case user spams button or they refreshed and the page, they still can get image without genereting new one
-    if (req.session.user.imageLink) {
+    // In case user spams button or they refreshed the page, they still can get image without genereting new one
+    if (req.session.user.imageSource) {
         return res.status(201).send({
             status: 'success',
-            message: 'Image generated succesfully',
-            imageLink: req.session.user.imageLink,
+            message: 'Image path found succesfully',
+            imageSource: req.session.user.imageSource,
             prompt: req.session.user.prompt,
         });
     }
@@ -107,20 +123,20 @@ async function generateRobotPicture(req, res) {
             },
         );
 
-        // const imageLink = 'randomlink';
         const imageLink = response.data.data[0].url;
 
-        req.session.user.imageLink = imageLink;
         req.session.user.prompt = prompt;
 
-        res.status(201).send({
+        const filePathForLater = await saveImage(id, imageLink);
+        req.session.user.imageSource = filePathForLater;
+        console.log(req.session.user.imageSource);
+
+        return res.status(201).send({
             status: 'success',
             message: 'Image generated succesfully',
-            imageLink: imageLink,
+            imageSource: imageLink,
             prompt: prompt,
         });
-
-        saveImage(id, imageLink);
     } catch (error) {
         console.log(error);
 

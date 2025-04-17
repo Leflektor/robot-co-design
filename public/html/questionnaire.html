@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="styles.css" />
         <script
             type="module"
-            src="../javaScript/questionareHandler.js"
+            src="../javaScript/questionnaireHandler.js"
         ></script>
         <title>QUESTIONNAIRE</title>
     </head>
@@ -58,9 +58,15 @@
                 >
                     <h2>What is your gender?</h2>
                     <div class="mt-4 flex w-full justify-evenly">
-                        <button class="btn-inactive w-1/4">MALE</button>
-                        <button class="btn-inactive w-1/4">FEMALE</button>
-                        <button class="btn-inactive w-1/4">OTHER</button>
+                        <button class="btn-inactive w-1/4" value="male">
+                            MALE
+                        </button>
+                        <button class="btn-inactive w-1/4" value="female">
+                            FEMALE
+                        </button>
+                        <button class="btn-inactive w-1/4" value="other">
+                            OTHER
+                        </button>
                     </div>
                 </div>
                 <!-- MARITAL STATUS -->
@@ -70,11 +76,18 @@
                 >
                     <h2>What is your marital status?</h2>
                     <div class="mt-4 flex w-full justify-evenly">
-                        <button class="btn-inactive w-1/4">SINGLE</button>
-                        <button class="btn-inactive w-1/4">
+                        <button class="btn-inactive w-1/4" value="single">
+                            SINGLE
+                        </button>
+                        <button
+                            class="btn-inactive w-1/4"
+                            value="married/in relation"
+                        >
                             MARRIED/IN RELATION
                         </button>
-                        <button class="btn-inactive w-1/4">WIDOWED</button>
+                        <button class="btn-inactive w-1/4" value="widowed">
+                            WIDOWED
+                        </button>
                     </div>
                 </div>
                 <!-- EDUCATION -->
@@ -84,18 +97,32 @@
                 >
                     <h2>What is your education?</h2>
                     <div class="mt-4 flex w-full justify-evenly">
-                        <button class="btn-inactive w-1/4">PRIMARY</button>
-                        <button class="btn-inactive w-1/4">SECONDARY</button>
-                        <button class="btn-inactive w-1/4">VOCATIONAL</button>
+                        <button class="btn-inactive w-1/4" value="primary">
+                            PRIMARY
+                        </button>
+                        <button class="btn-inactive w-1/4" value="secondary">
+                            SECONDARY
+                        </button>
+                        <button class="btn-inactive w-1/4" value="vocational">
+                            VOCATIONAL
+                        </button>
                     </div>
                     <div class="mt-4 flex w-full justify-evenly">
-                        <button class="btn-inactive w-1/4">
+                        <button
+                            class="btn-inactive w-1/4"
+                            value="higher-professional"
+                        >
                             HIGHER-PROFESSIONAL
                         </button>
-                        <button class="btn-inactive w-1/4">
+                        <button
+                            class="btn-inactive w-1/4"
+                            value="higher-bachelor"
+                        >
                             HIGHER-BACHELOR
                         </button>
-                        <button class="btn-inactive w-1/4">MASTER LEVEL</button>
+                        <button class="btn-inactive w-1/4" value="master level">
+                            MASTER LEVEL
+                        </button>
                     </div>
                 </div>
                 <!-- PLACE OF RESIDENCE -->
@@ -105,9 +132,15 @@
                 >
                     <h2>What is your place of residence?</h2>
                     <div class="mt-4 flex w-full justify-evenly">
-                        <button class="btn-inactive w-1/4">VILLAGE</button>
-                        <button class="btn-inactive w-1/4">TOWN</button>
-                        <button class="btn-inactive w-1/4">CITY</button>
+                        <button class="btn-inactive w-1/4" value="village">
+                            VILLAGE
+                        </button>
+                        <button class="btn-inactive w-1/4" value="town">
+                            TOWN
+                        </button>
+                        <button class="btn-inactive w-1/4" value="city">
+                            CITY
+                        </button>
                     </div>
                 </div>
                 <!-- LIVING ARRANGEMNET -->
@@ -117,18 +150,33 @@
                 >
                     <h2>What is your living arrangement?</h2>
                     <div class="mt-4 flex w-full justify-evenly">
-                        <button class="btn-inactive w-1/4">ALONE</button>
-                        <button class="btn-inactive w-1/4">WITH SPOUSE</button>
-                        <button class="btn-inactive w-1/4">
+                        <button class="btn-inactive w-1/4" value="alone">
+                            ALONE
+                        </button>
+                        <button class="btn-inactive w-1/4" value="with spouse">
+                            WITH SPOUSE
+                        </button>
+                        <button
+                            class="btn-inactive w-1/4"
+                            value="with children"
+                        >
                             WITH CHILDREN
                         </button>
                     </div>
                     <div class="mt-4 flex w-full justify-evenly">
-                        <button class="btn-inactive w-1/4">WITH PARENTS</button>
-                        <button class="btn-inactive w-1/4">
+                        <button class="btn-inactive w-1/4" value="with parents">
+                            WITH PARENTS
+                        </button>
+                        <button
+                            class="btn-inactive w-1/4"
+                            value="with spouse and children"
+                        >
                             WITH SPOUSE AND CHILDREN
                         </button>
-                        <button class="btn-inactive w-1/4">
+                        <button
+                            class="btn-inactive w-1/4"
+                            value="with flatmates"
+                        >
                             WITH FLATMATES
                         </button>
                     </div>

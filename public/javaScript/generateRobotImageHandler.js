@@ -48,7 +48,7 @@ generateImagebutton.addEventListener('click', async () => {
         if ((res.status = 'success')) {
             console.log(res.prompt); // Delete later
 
-            imageElement.src = res.imageLink;
+            imageElement.src = res.imageSource;
             placeHolderDiv.classList.add('hidden');
             imageElement.classList.remove('hidden');
             opinionSection.classList.remove('hidden');

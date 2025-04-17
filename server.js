@@ -1,7 +1,6 @@
 const dotenv = require('dotenv');
 const express = require('express');
 const rateLimit = require('express-rate-limit');
-const helmet = require('helmet');
 
 const app = express();
 const {
@@ -16,22 +15,7 @@ dotenv.config({ path: './config.env' });
 
 const port = process.env.PORT || 3000;
 
-// Middlewares
-// Set security HTTP headers
-app.use(
-    helmet({
-        contentSecurityPolicy: {
-            directives: {
-                'default-src': ["'self'"],
-                'img-src': [
-                    "'self'",
-                    'data:',
-                    'https://oaidalleapiprodscus.blob.core.windows.net',
-                ],
-            },
-        },
-    }),
-);
+// General Middlewares
 
 // Limit requests from same IP
 const limiter = rateLimit({
@@ -48,12 +32,16 @@ app.use(
     }),
 );
 
-// Serving static files
-app.use(express.static(`${__dirname}/public`));
-
+// Initialization of user sessions
 app.use(sessionMiddleware);
 
+// Static and dynamic routing
+
+// Serving static files
+app.use(express.static(`${__dirname}/public`));
 app.use(staticRoutes);
+
+// Serving API for communication with frontend
 app.use(dynamicRoutes);
 
 app.listen(port, () => {

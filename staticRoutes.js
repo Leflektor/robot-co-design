@@ -15,7 +15,7 @@ const staticRoutes = [
     { path: '/mainPage', file: 'mainPage.html', auth: isNotLoggedIn },
     { path: '/login', file: 'login.html', auth: isLoggedIn },
     { path: '/register', file: 'register.html', auth: isLoggedIn },
-    { path: '/questionare', file: 'questionare.html', auth: isNotLoggedIn },
+    { path: '/questionnaire', file: 'questionnaire.html', auth: isNotLoggedIn },
     {
         path: '/robotCoCreation',
         file: 'robotCoCreation.html',
