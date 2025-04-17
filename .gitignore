@@ -4,3 +4,5 @@ designarobot2.pdf
 filtered_records.csv
 .prettierrc
 UNRAQ2.pdf
+public/generated_images/*
+!public/generated_images/.gitkeep

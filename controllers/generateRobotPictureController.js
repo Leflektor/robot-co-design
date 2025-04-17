@@ -18,9 +18,6 @@ async function saveImage(imageId, imageURL) {
             fileName,
         );
 
-        console.log(fileName);
-        console.log(filePath);
-
         const response = await axios({
             url: imageURL,
             method: 'GET',
